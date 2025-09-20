@@ -5,54 +5,93 @@ import { Menu, X, Zap } from 'lucide-react';
 
 // Composant pour les chiffres binaires qui se téléportent
 const TeleportingBinaryDigits: React.FC = () => {
-  // Fonction pour vérifier si deux positions se chevauchent
-  const checkCollision = (newTop: number, newLeft: number, existingDigits: any[], minDistance: number = 8) => {
-    return existingDigits.some(digit => {
-      if (!digit.visible) return false; // Ignore les chiffres invisibles
-      const distance = Math.sqrt(
-        Math.pow(newTop - digit.top, 2) + Math.pow(newLeft - digit.left, 2)
+  const [digits, setDigits] = React.useState(() => 
+    Array.from({ length: 15 }, (_, i) => {
+      return {
+        id: i,
+        value: Math.random() > 0.5 ? '1' : '0',
+        top: Math.random() * 90 + 5,
+        left: Math.random() * 90 + 5,
+        opacity: Math.random() * 0.3 + 0.1,
+        size: ['text-xl', 'text-2xl', 'text-3xl'][Math.floor(Math.random() * 3)],
+        visible: true,
+        nextChangeTime: Date.now() + Math.random() * 200 + 100 // 0.1s à 0.3s
+      };
+    })
+  );
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      const now = Date.now();
+      setDigits(prevDigits => 
+        prevDigits.map(digit => {
+          if (now >= digit.nextChangeTime) {
+            if (digit.visible) {
+              // Disparaître complètement
+              return {
+                ...digit,
+                visible: false,
+                nextChangeTime: now + 50 // Réapparaître dans exactement 50ms
+              };
+            } else {
+              // Réapparaître à un nouvel endroit avec de nouvelles propriétés
+              return {
+                ...digit,
+                value: Math.random() > 0.5 ? '1' : '0',
+                top: Math.random() * 90 + 5,
+                left: Math.random() * 90 + 5,
+                opacity: Math.random() * 0.3 + 0.1,
+                size: ['text-xl', 'text-2xl', 'text-3xl'][Math.floor(Math.random() * 3)],
+                visible: true,
+                nextChangeTime: now + Math.random() * 200 + 100 // Rester visible 0.1s à 0.3s avant prochaine téléportation
+              };
+            }
+          }
+          return digit;
+        })
       );
-      return distance < minDistance;
-    });
-  };
+    }, 10); // Vérification toutes les 10ms
 
-  // Fonction pour générer une position sans collision
-  const generateSafePosition = (existingDigits: any[], maxAttempts: number = 50) => {
-    for (let attempt = 0; attempt < maxAttempts; attempt++) {
-      const newTop = Math.random() * 90 + 5;
-      const newLeft = Math.random() * 90 + 5;
-      
-      if (!checkCollision(newTop, newLeft, existingDigits)) {
-        return { top: newTop, left: newLeft };
-      }
-    }
-    
-    // Si aucune position sûre n'est trouvée, retourne une position aléatoire
-    return {
-      top: Math.random() * 90 + 5,
-      left: Math.random() * 90 + 5
-    };
-  };
+    return () => clearInterval(interval);
+  }, []);
 
+  return (
+    <>
+      {digits.map(digit => (
+        <div
+          key={digit.id}
+          className={`absolute ${digit.size} font-mono text-cyan-400 transition-opacity duration-300 select-none ${
+            digit.visible ? 'opacity-100' : 'opacity-0'
+          }`}
+          style={{
+            top: `${digit.top}%`,
+            left: `${digit.left}%`,
+            opacity: digit.visible ? digit.opacity : 0,
+            textShadow: '0 0 10px rgba(34, 211, 238, 0.5)',
+            transform: 'translate(-50%, -50%)'
+          }}
+        >
+          {digit.value}
+        </div>
+      ))}
+    </>
+  );
+};
+
+// Composant pour les chiffres binaires qui se téléportent dans le menu étendu
+const TeleportingBinaryDigitsMenu: React.FC = () => {
   const [digits, setDigits] = React.useState(() => 
     Array.from({ length: 28 }, (_, i) => {
-      // Génération initiale avec détection de collision
-      const existingDigits: any[] = [];
-      const position = generateSafePosition(existingDigits);
-      
-      const newDigit = {
+      return {
         id: i,
         digit: Math.random() > 0.5 ? '1' : '0',
-        top: position.top,
-        left: position.left,
-        color: ['text-green-400', 'text-green-300', 'text-emerald-400', 'text-lime-400', 'text-green-500'][Math.floor(Math.random() * 5)],
+        top: Math.random() * 90 + 5,
+        left: Math.random() * 90 + 5,
+        color: ['text-cyan-400', 'text-cyan-300', 'text-blue-400', 'text-sky-400', 'text-cyan-500'][Math.floor(Math.random() * 5)],
         size: ['text-xl', 'text-2xl', 'text-3xl'][Math.floor(Math.random() * 3)],
         visible: true,
         nextChangeTime: Date.now() + Math.random() * 2000 + 1000 // 1s à 3s
       };
-      
-      existingDigits.push(newDigit);
-      return newDigit;
     })
   );
 
@@ -70,16 +109,13 @@ const TeleportingBinaryDigits: React.FC = () => {
                 nextChangeTime: now + 1000 // Réapparaître dans exactement 1 seconde
               };
             } else {
-              // Réapparaître à un nouvel endroit avec de nouvelles propriétés (sans collision)
-              const otherVisibleDigits = prevDigits.filter(d => d.id !== digit.id && d.visible);
-              const safePosition = generateSafePosition(otherVisibleDigits);
-              
+              // Réapparaître à un nouvel endroit avec de nouvelles propriétés
               return {
                 ...digit,
                 digit: Math.random() > 0.5 ? '1' : '0',
-                top: safePosition.top,
-                left: safePosition.left,
-                color: ['text-green-400', 'text-green-300', 'text-emerald-400', 'text-lime-400', 'text-green-500'][Math.floor(Math.random() * 5)],
+                top: Math.random() * 90 + 5,
+                left: Math.random() * 90 + 5,
+                color: ['text-cyan-400', 'text-cyan-300', 'text-blue-400', 'text-sky-400', 'text-cyan-500'][Math.floor(Math.random() * 5)],
                 size: ['text-xl', 'text-2xl', 'text-3xl'][Math.floor(Math.random() * 3)],
                 visible: true,
                 nextChangeTime: now + Math.random() * 2000 + 1000 // Rester visible 1s à 3s avant prochaine téléportation
@@ -92,7 +128,7 @@ const TeleportingBinaryDigits: React.FC = () => {
     }, 100); // Vérification toutes les 100ms
 
     return () => clearInterval(interval);
-  }, [checkCollision, generateSafePosition]);
+  }, []);
 
   return (
     <>
@@ -105,6 +141,7 @@ const TeleportingBinaryDigits: React.FC = () => {
           style={{
             top: `${digit.top}%`,
             left: `${digit.left}%`,
+            transform: 'translate(-50%, -50%)'
           }}
         >
           {digit.digit}
@@ -117,6 +154,16 @@ const TeleportingBinaryDigits: React.FC = () => {
 export const Navigation: React.FC = () => {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
+  const [displayedText, setDisplayedText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [isTyping, setIsTyping] = useState(false);
+  
+  // Phrases qui changent toutes les 3 secondes
+  const phrases = [
+    "Si Dieu avait un menu pour créer l'univers, il ressemblait à ça",
+    "L'univers est un jeu, alors amuse-toi"
+  ];
   
   // Fermer le menu lors du changement de route avec un délai pour éviter les conflits
   useEffect(() => {
@@ -126,6 +173,56 @@ export const Navigation: React.FC = () => {
     
     return () => clearTimeout(timer);
   }, [location.pathname]);
+  
+  // Effet de machine à écrire avec suppression et écriture
+  useEffect(() => {
+    const currentPhrase = phrases[currentPhraseIndex];
+    
+    if (!isDeleting && !isTyping) {
+      // Attendre 1 seconde avant de commencer à supprimer
+      const waitTimer = setTimeout(() => {
+        setIsDeleting(true);
+      }, 1000);
+      return () => clearTimeout(waitTimer);
+    }
+    
+    if (isDeleting) {
+      // Supprimer caractère par caractère (plus rapide)
+      const deleteTimer = setTimeout(() => {
+        setDisplayedText(prev => {
+          if (prev.length === 0) {
+            setIsDeleting(false);
+            setIsTyping(true);
+            setCurrentPhraseIndex(prevIndex => (prevIndex + 1) % phrases.length);
+            return '';
+          }
+          return prev.slice(0, -1);
+        });
+      }, 30); // 30ms entre chaque suppression
+      return () => clearTimeout(deleteTimer);
+    }
+    
+    if (isTyping) {
+      // Écrire caractère par caractère
+      const typeTimer = setTimeout(() => {
+        setDisplayedText(prev => {
+          if (prev.length === currentPhrase.length) {
+            setIsTyping(false);
+            return prev;
+          }
+          return currentPhrase.slice(0, prev.length + 1);
+        });
+      }, 50); // 50ms entre chaque caractère
+      return () => clearTimeout(typeTimer);
+    }
+  }, [currentPhraseIndex, isDeleting, isTyping, displayedText, phrases]);
+  
+  // Initialiser le texte au premier rendu
+  useEffect(() => {
+    if (displayedText === '') {
+      setIsTyping(true);
+    }
+  }, [displayedText]);
   
   const navigationItems = [
     {
@@ -374,7 +471,7 @@ export const Navigation: React.FC = () => {
         
         {/* Chiffres binaires 0 et 1 flottants dans l'espace-temps */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <TeleportingBinaryDigits />
+          <TeleportingBinaryDigitsMenu />
         </div>
         
         {/* Contenu du menu avec les liens de navigation */}
@@ -444,7 +541,7 @@ export const Navigation: React.FC = () => {
               </div>
               
               {/* Texte principal avec effets multiples */}
-              <h2 className="relative z-10 text-2xl sm:text-5xl font-black mb-0 transform transition-all duration-1000 p-3 sm:p-8 rounded-3xl overflow-hidden">
+              <h2 className="relative z-10 text-4xl sm:text-5xl font-black mb-0 transform transition-all duration-1000 p-3 sm:p-8 rounded-3xl overflow-hidden">
                 <span className="relative z-10 bg-gradient-to-r from-cyan-300 via-purple-300 via-pink-300 to-yellow-300 bg-clip-text text-transparent bg-[length:400%_400%] animate-gradient-x drop-shadow-[0_0_30px_rgba(6,182,212,0.8)] group-hover:drop-shadow-[0_0_50px_rgba(147,51,234,1)] transition-all duration-1000 font-extrabold tracking-wider whitespace-nowrap">
                   Menu de Dieu
                 </span>
@@ -462,8 +559,71 @@ export const Navigation: React.FC = () => {
             </div>
           </div>
           
+          {/* Phrase stylisée sous le titre */}
+          <div className="mt-8 sm:mt-20 mb-8 sm:mb-12 max-w-4xl mx-auto px-4">
+            <div className="relative group cursor-default">
+              {/* Fond principal avec gradient animé */}
+              <div className="absolute inset-0 bg-gradient-to-r from-slate-800/90 via-purple-800/90 to-indigo-800/90 rounded-2xl"></div>
+              
+              {/* Couche de grille futuriste */}
+              <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,182,212,0.08)_1px,transparent_1px),linear-gradient(rgba(6,182,212,0.08)_1px,transparent_1px)] bg-[size:20px_20px] rounded-2xl"></div>
+              
+              {/* Effet de vagues énergétiques */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-500/5 via-purple-500/5 via-pink-500/5 to-transparent bg-[length:200%_100%] animate-gradient-x rounded-2xl"></div>
+              
+              {/* Bordures lumineuses */}
+              <div className="absolute inset-0 rounded-2xl border border-cyan-400/30 shadow-[0_0_20px_rgba(6,182,212,0.2)]"></div>
+              <div className="absolute inset-1 rounded-2xl border border-purple-400/20 shadow-[0_0_15px_rgba(147,51,234,0.15)]"></div>
+              
+              {/* Particules flottantes */}
+              <div className="absolute inset-0 overflow-hidden rounded-2xl">
+                {[...Array(4)].map((_, i) => (
+                  <div
+                    key={i}
+                    className="absolute w-1 h-1 bg-white rounded-full animate-ping opacity-30"
+                    style={{
+                      top: `${Math.random() * 100}%`,
+                      left: `${Math.random() * 100}%`,
+                      animationDelay: `${Math.random() * 4}s`,
+                      animationDuration: `${3 + Math.random() * 2}s`
+                    }}
+                  />
+                ))}
+              </div>
+              
+              {/* Lueur externe pulsante */}
+              <div className="absolute -inset-2 bg-gradient-to-r from-cyan-600/10 via-purple-600/10 to-pink-600/10 rounded-2xl blur-xl animate-pulse opacity-50"></div>
+              
+              {/* Effet holographique */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-300/3 via-purple-300/3 to-transparent bg-[length:300%_100%] animate-gradient-x rounded-2xl opacity-40"></div>
+              
+              {/* Texte principal */}
+              <div className="relative z-10 p-4 sm:p-6 text-center">
+                <p className="text-lg sm:text-xl lg:text-2xl font-semibold bg-gradient-to-r from-cyan-200 via-purple-200 via-pink-200 to-yellow-200 bg-clip-text text-transparent bg-[length:400%_400%] animate-gradient-x drop-shadow-[0_0_20px_rgba(6,182,212,0.6)] leading-relaxed italic">
+                  {displayedText}
+                  {/* Curseur clignotant */}
+                  <span className="inline-block w-0.5 h-6 sm:h-7 bg-cyan-300 ml-1 animate-pulse"></span>
+                </p>
+                
+                {/* Bordure lumineuse animée autour du texte */}
+                <div className="absolute -inset-2 bg-gradient-to-r from-cyan-400/20 via-purple-400/20 to-pink-400/20 rounded-2xl opacity-20 blur-lg animate-pulse"></div>
+                
+                {/* Effet de scan horizontal */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-1000 animate-scan rounded-2xl"></div>
+                
+                {/* Reflets cristallins */}
+                <div className="absolute top-2 left-1/4 w-1/2 h-0.5 bg-gradient-to-r from-transparent via-white/60 to-transparent blur-sm opacity-40"></div>
+                <div className="absolute bottom-2 right-1/4 w-1/3 h-0.5 bg-gradient-to-r from-transparent via-cyan-300/60 to-transparent blur-sm opacity-30"></div>
+              </div>
+              
+              {/* Particules orbitales */}
+              <div className="absolute -top-1 -right-1 w-2 h-2 bg-cyan-400 rounded-full animate-ping opacity-60"></div>
+              <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-purple-400 rounded-full animate-ping opacity-60 animation-delay-300"></div>
+            </div>
+          </div>
+          
           {/* Bouton de fermeture X en haut à droite du contenu */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl w-full mt-12 sm:mt-20 flex-shrink-0">
+          <div className="flex flex-col sm:flex-row sm:justify-center gap-6 sm:gap-8 max-w-5xl w-full flex-shrink-0">
             {navigationItems.map((item, index) => (
               <Link
                 key={item.path}
@@ -478,7 +638,7 @@ export const Navigation: React.FC = () => {
                     setIsMobileMenuOpen(false);
                   }, 100);
                 }}
-                className={`relative group flex items-center justify-center p-6 sm:p-8 rounded-2xl sm:rounded-3xl border-2 transition-all duration-300 sm:duration-700 transform hover:scale-105 active:scale-95 ${
+                className={`relative group flex items-center justify-center p-6 sm:p-8 rounded-2xl sm:rounded-3xl border-2 transition-all duration-300 sm:duration-700 transform hover:scale-105 active:scale-95 flex-1 sm:max-w-xs ${
                   location.pathname === item.path
                     ? `bg-gradient-to-br from-slate-800/95 to-slate-700/95 ${item.borderColor} ${item.shadowColor} shadow-2xl`
                     : `bg-slate-800/95 border-slate-600/50 hover:bg-gradient-to-br hover:from-slate-700/95 hover:to-slate-600/95 ${item.hoverBorderColor} ${item.hoverShadowColor} hover:shadow-2xl`

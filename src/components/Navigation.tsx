@@ -215,189 +215,136 @@ export const Navigation: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-center py-4 sm:py-6 relative">
             
-            {/* Bouton Menu Hamburger - affiché uniquement quand le menu est fermé */}
-            {!isMobileMenuOpen && (
-              <button
-                onClick={toggleMobileMenu}
-                className="relative group bg-gradient-to-r from-slate-900/95 via-purple-900/95 to-indigo-900/95 hover:from-cyan-600/95 hover:via-purple-600/95 hover:to-pink-600/95 text-white rounded-3xl p-6 sm:p-8 transition-all duration-1000 transform hover:scale-125 active:scale-95 shadow-[0_0_50px_rgba(6,182,212,0.5)] hover:shadow-[0_0_80px_rgba(147,51,234,0.8)] border-4 border-cyan-400/40 hover:border-purple-400/80"
-              >
-                {/* Fond principal avec gradient animé */}
-                <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-purple-900/95 via-blue-900/95 to-indigo-900/95 rounded-3xl"></div>
-                
-                {/* Couche de grille futuriste */}
-                <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,182,212,0.15)_1px,transparent_1px),linear-gradient(rgba(6,182,212,0.15)_1px,transparent_1px)] bg-[size:15px_15px] rounded-3xl"></div>
-                
-                {/* Effet de vagues énergétiques */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-500/20 via-purple-500/20 via-pink-500/20 to-transparent bg-[length:200%_100%] animate-gradient-x rounded-3xl"></div>
-                
-                {/* Bordures lumineuses multiples */}
-                <div className="absolute inset-0 rounded-3xl border-2 border-cyan-400/50 shadow-[0_0_30px_rgba(6,182,212,0.4)] group-hover:border-purple-400/70 group-hover:shadow-[0_0_50px_rgba(147,51,234,0.6)] transition-all duration-1000"></div>
-                <div className="absolute inset-1 rounded-3xl border border-purple-400/30 shadow-[0_0_20px_rgba(147,51,234,0.2)] group-hover:border-pink-400/50 group-hover:shadow-[0_0_30px_rgba(236,72,153,0.4)] transition-all duration-1000"></div>
-                <div className="absolute inset-2 rounded-3xl border border-pink-400/20 shadow-[0_0_15px_rgba(236,72,153,0.15)] group-hover:border-cyan-400/40 group-hover:shadow-[0_0_25px_rgba(6,182,212,0.3)] transition-all duration-1000"></div>
-                
-                {/* Particules flottantes dans le fond */}
-                <div className="absolute inset-0 overflow-hidden rounded-3xl">
-                  {[...Array(2)].map((_, i) => (
-                    <div
-                      key={i}
-                      className="absolute w-1 h-1 bg-white rounded-full animate-ping opacity-40 group-hover:opacity-70 transition-opacity duration-1000"
-                      style={{
-                        top: `${Math.random() * 100}%`,
-                        left: `${Math.random() * 100}%`,
-                        animationDelay: `${Math.random() * 3}s`,
-                        animationDuration: `${2 + Math.random() * 2}s`
-                      }}
-                    />
-                  ))}
-                </div>
-                
-                {/* Effet de scan diagonal */}
-                <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-1000 animate-scan rounded-3xl transform rotate-12"></div>
-                
-                {/* Lueur externe pulsante */}
-                <div className="absolute -inset-6 bg-gradient-to-r from-cyan-600/30 via-purple-600/30 via-pink-600/30 to-yellow-600/30 rounded-3xl blur-2xl animate-pulse opacity-40 group-hover:opacity-80 group-hover:blur-3xl transition-all duration-1000"></div>
-                
-                {/* Effet holographique */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-300/10 via-purple-300/10 to-transparent bg-[length:300%_100%] animate-gradient-x rounded-3xl opacity-30 group-hover:opacity-60 transition-all duration-1000"></div>
-                
-                {/* Fond lumineux animé */}
-                <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 via-purple-400/20 to-pink-400/20 rounded-3xl blur-xl animate-pulse group-hover:blur-2xl transition-all duration-1000"></div>
-                
-                {/* Effet de particules scintillantes */}
-                <div className="absolute inset-0 overflow-hidden rounded-3xl">
-                  {[...Array(3)].map((_, i) => (
-                    <div
-                      key={i}
-                      className="absolute w-0.5 h-0.5 bg-white rounded-full animate-ping opacity-50 group-hover:opacity-90 transition-opacity duration-1000"
-                      style={{
-                        top: `${Math.random() * 100}%`,
-                        left: `${Math.random() * 100}%`,
-                        animationDelay: `${Math.random() * 2}s`,
-                        animationDuration: `${1.5 + Math.random() * 1.5}s`
-                      }}
-                    />
-                  ))}
-                </div>
-                
-                {/* Icône Menu avec effets multiples */}
-                <div className="relative z-10 transition-all duration-1000 group-hover:scale-110">
-                  <div className="relative">
-                    {/* Icône principale */}
-                    <Menu className="w-8 h-8 sm:w-10 sm:h-10 relative z-10 drop-shadow-[0_0_15px_rgba(6,182,212,0.8)] group-hover:drop-shadow-[0_0_25px_rgba(147,51,234,1)] transition-all duration-1000" />
-                    
-                    {/* Effet de lueur externe sur l'icône */}
-                    <div className="absolute inset-0 opacity-30 blur-sm group-hover:opacity-60 transition-all duration-1000">
-                      <Menu className="w-8 h-8 sm:w-10 sm:h-10 text-cyan-400 group-hover:text-purple-400 transition-colors duration-1000" />
-                    </div>
-                    
-                    {/* Bordure lumineuse animée autour de l'icône */}
-                    <div className="absolute -inset-2 bg-gradient-to-r from-cyan-400 via-purple-400 via-pink-400 to-yellow-400 rounded-2xl opacity-20 blur-lg animate-pulse group-hover:opacity-40 group-hover:blur-xl transition-all duration-1000"></div>
-                    
-                    {/* Effet de scan horizontal sur l'icône */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-1000 animate-scan rounded-2xl"></div>
-                    
-                    {/* Reflets cristallins sur l'icône */}
-                    <div className="absolute top-0 left-1/4 w-1/2 h-0.5 bg-gradient-to-r from-transparent via-white/90 to-transparent blur-sm opacity-40 group-hover:opacity-80 transition-all duration-1000"></div>
-                    <div className="absolute bottom-0 right-1/4 w-1/3 h-0.5 bg-gradient-to-r from-transparent via-cyan-300/90 to-transparent blur-sm opacity-30 group-hover:opacity-70 transition-all duration-1000"></div>
-                  </div>
-                </div>
-                
-                {/* Particules orbitales autour du bouton */}
-                <div className="absolute -top-2 -right-2 w-3 h-3 bg-cyan-400 rounded-full animate-ping opacity-60 group-hover:opacity-90 transition-opacity duration-1000"></div>
-                <div className="absolute -bottom-2 -left-2 w-3 h-3 bg-purple-400 rounded-full animate-ping opacity-60 group-hover:opacity-90 transition-opacity duration-1000 animation-delay-300"></div>
-                <div className="absolute -top-2 -left-2 w-2 h-2 bg-pink-400 rounded-full animate-ping opacity-50 group-hover:opacity-80 transition-opacity duration-1000 animation-delay-500"></div>
-                <div className="absolute -bottom-2 -right-2 w-2 h-2 bg-yellow-400 rounded-full animate-ping opacity-50 group-hover:opacity-80 transition-opacity duration-1000 animation-delay-700"></div>
-                
-                {/* Anneaux énergétiques qui s'étendent au hover */}
-                <div className="absolute inset-0 rounded-full border-2 border-cyan-400/0 group-hover:border-cyan-400/30 group-hover:scale-150 transition-all duration-1000 animate-pulse"></div>
-                <div className="absolute inset-0 rounded-full border border-purple-400/0 group-hover:border-purple-400/20 group-hover:scale-200 transition-all duration-1500 animate-pulse animation-delay-300"></div>
-              </button>
-            )}
-            
-            {/* Titre "Menu de Dieu" - affiché uniquement quand le menu est ouvert */}
-            {isMobileMenuOpen && (
-              <div className="relative group cursor-default">
-                {/* Fond principal avec gradient animé */}
-                <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-purple-900/95 via-blue-900/95 to-indigo-900/95 rounded-3xl"></div>
-                
-                {/* Couche de grille futuriste */}
-                <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,182,212,0.15)_1px,transparent_1px),linear-gradient(rgba(6,182,212,0.15)_1px,transparent_1px)] bg-[size:25px_25px] rounded-3xl"></div>
-                
-                {/* Effet de vagues énergétiques */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-500/10 via-purple-500/10 via-pink-500/10 to-transparent bg-[length:200%_100%] animate-gradient-x rounded-3xl"></div>
-                
-                {/* Bordures lumineuses multiples */}
-                <div className="absolute inset-0 rounded-3xl border-2 border-cyan-400/40 shadow-[0_0_30px_rgba(6,182,212,0.3)]"></div>
-                <div className="absolute inset-1 rounded-3xl border border-purple-400/30 shadow-[0_0_20px_rgba(147,51,234,0.2)]"></div>
-                <div className="absolute inset-2 rounded-3xl border border-pink-400/20 shadow-[0_0_15px_rgba(236,72,153,0.15)]"></div>
-                
-                {/* Particules flottantes dans le fond */}
-                <div className="absolute inset-0 overflow-hidden rounded-3xl">
-                  {[...Array(30)].map((_, i) => (
-                    <div
-                      key={i}
-                      className="absolute w-1 h-1 bg-white rounded-full animate-ping opacity-40"
-                      style={{
-                        top: `${Math.random() * 100}%`,
-                        left: `${Math.random() * 100}%`,
-                        animationDelay: `${Math.random() * 4}s`,
-                        animationDuration: `${3 + Math.random() * 3}s`
-                      }}
-                    />
-                  ))}
-                </div>
-                
-                {/* Effet de scan diagonal */}
-                <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-1000 animate-scan rounded-3xl transform rotate-12"></div>
-                
-                {/* Lueur externe pulsante */}
-                <div className="absolute -inset-4 bg-gradient-to-r from-cyan-600/20 via-purple-600/20 via-pink-600/20 to-yellow-600/20 rounded-3xl blur-xl animate-pulse opacity-60 group-hover:opacity-100 transition-all duration-1000"></div>
-                
-                {/* Effet holographique */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-300/5 via-purple-300/5 to-transparent bg-[length:300%_100%] animate-gradient-x rounded-3xl opacity-50 group-hover:opacity-80 transition-all duration-1000"></div>
-                
-                {/* Fond lumineux animé */}
-                <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/30 via-purple-400/30 to-pink-400/30 rounded-3xl blur-2xl animate-pulse group-hover:blur-xl transition-all duration-1000"></div>
-                
-                {/* Effet de particules scintillantes */}
-                <div className="absolute inset-0 overflow-hidden rounded-3xl">
-                  {[...Array(50)].map((_, i) => (
-                    <div
-                      key={i}
-                      className="absolute w-1 h-1 bg-white rounded-full animate-ping opacity-70"
-                      style={{
-                        top: `${Math.random() * 100}%`,
-                        left: `${Math.random() * 100}%`,
-                        animationDelay: `${Math.random() * 3}s`,
-                        animationDuration: `${2 + Math.random() * 2}s`
-                      }}
-                    />
-                  ))}
-                </div>
-                
-                {/* Texte principal avec effets multiples */}
-                <h2 className="relative z-10 text-4xl sm:text-5xl font-black mb-0 transform transition-all duration-1000 p-6 rounded-3xl overflow-hidden">
-                  <span className="relative z-10 bg-gradient-to-r from-cyan-300 via-purple-300 via-pink-300 to-yellow-300 bg-clip-text text-transparent bg-[length:400%_400%] animate-gradient-x drop-shadow-[0_0_30px_rgba(6,182,212,0.8)] group-hover:drop-shadow-[0_0_50px_rgba(147,51,234,1)] transition-all duration-1000 font-extrabold tracking-wider">
-                    Menu de Dieu
-                  </span>
-                  
-                  {/* Effet de lueur externe */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent opacity-30 blur-sm group-hover:opacity-50 transition-all duration-1000 font-black text-4xl sm:text-5xl tracking-wider">
-                    Menu de Dieu
-                  </div>
-                  
-                  {/* Bordure lumineuse animée */}
-                  <div className="absolute -inset-3 bg-gradient-to-r from-cyan-400 via-purple-400 via-pink-400 to-yellow-400 rounded-3xl opacity-30 blur-2xl animate-pulse group-hover:opacity-60 group-hover:blur-3xl transition-all duration-1000"></div>
-                  
-                  {/* Effet de scan horizontal */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-1000 animate-scan rounded-3xl"></div>
-                  
-                  {/* Reflets cristallins */}
-                  <div className="absolute top-0 left-1/4 w-1/2 h-1 bg-gradient-to-r from-transparent via-white/80 to-transparent blur-sm opacity-60 group-hover:opacity-100 transition-all duration-1000"></div>
-                  <div className="absolute bottom-0 right-1/4 w-1/3 h-1 bg-gradient-to-r from-transparent via-cyan-300/80 to-transparent blur-sm opacity-40 group-hover:opacity-80 transition-all duration-1000"></div>
-                </h2>
+            {/* Bouton Menu Hamburger / Fermer - toujours présent */}
+            <button
+              onClick={toggleMobileMenu}
+              className={`relative group text-white rounded-3xl p-6 sm:p-8 shadow-[0_0_50px_rgba(6,182,212,0.5)] hover:shadow-[0_0_80px_rgba(147,51,234,0.8)] border-4 border-cyan-400/40 hover:border-purple-400/80 ${
+                isMobileMenuOpen 
+                  ? 'bg-gradient-to-r from-red-600/95 via-pink-600/95 to-red-600/95' 
+                  : 'bg-gradient-to-r from-slate-900/95 via-purple-900/95 to-indigo-900/95'
+              }`}
+            >
+              {/* Fond principal avec gradient animé */}
+              <div className={`absolute inset-0 rounded-3xl ${
+                isMobileMenuOpen 
+                  ? 'bg-gradient-to-r from-red-900/95 via-pink-900/95 via-red-800/95 to-red-900/95' 
+                  : 'bg-gradient-to-r from-slate-900/95 via-purple-900/95 via-blue-900/95 to-indigo-900/95'
+              }`}></div>
+              
+              {/* Couche de grille futuriste */}
+              <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,182,212,0.15)_1px,transparent_1px),linear-gradient(rgba(6,182,212,0.15)_1px,transparent_1px)] bg-[size:15px_15px] rounded-3xl"></div>
+              
+              {/* Effet de vagues énergétiques */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-500/20 via-purple-500/20 via-pink-500/20 to-transparent bg-[length:200%_100%] animate-gradient-x rounded-3xl"></div>
+              
+              {/* Bordures lumineuses multiples */}
+              <div className={`absolute inset-0 rounded-3xl border-2 shadow-[0_0_30px_rgba(6,182,212,0.4)] group-hover:shadow-[0_0_50px_rgba(147,51,234,0.6)] transition-all duration-1000 ${
+                isMobileMenuOpen 
+                  ? 'border-red-400/50 group-hover:border-red-400/70' 
+                  : 'border-cyan-400/50 group-hover:border-purple-400/70'
+              }`}></div>
+              <div className="absolute inset-1 rounded-3xl border border-purple-400/30 shadow-[0_0_20px_rgba(147,51,234,0.2)] group-hover:border-pink-400/50 group-hover:shadow-[0_0_30px_rgba(236,72,153,0.4)] transition-all duration-1000"></div>
+              <div className="absolute inset-2 rounded-3xl border border-pink-400/20 shadow-[0_0_15px_rgba(236,72,153,0.15)] group-hover:border-cyan-400/40 group-hover:shadow-[0_0_25px_rgba(6,182,212,0.3)] transition-all duration-1000"></div>
+              
+              {/* Particules flottantes dans le fond */}
+              <div className="absolute inset-0 overflow-hidden rounded-3xl">
+                {[...Array(2)].map((_, i) => (
+                  <div
+                    key={i}
+                    className="absolute w-1 h-1 bg-white rounded-full animate-ping opacity-40 group-hover:opacity-70 transition-opacity duration-1000"
+                    style={{
+                      top: `${Math.random() * 100}%`,
+                      left: `${Math.random() * 100}%`,
+                      animationDelay: `${Math.random() * 3}s`,
+                      animationDuration: `${2 + Math.random() * 2}s`
+                    }}
+                  />
+                ))}
               </div>
-            )}
+              
+              {/* Effet de scan diagonal */}
+              <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-1000 animate-scan rounded-3xl transform rotate-12"></div>
+              
+              {/* Lueur externe pulsante */}
+              <div className={`absolute -inset-6 rounded-3xl blur-2xl animate-pulse opacity-40 group-hover:opacity-80 group-hover:blur-3xl transition-all duration-1000 ${
+                isMobileMenuOpen 
+                  ? 'bg-gradient-to-r from-red-600/30 via-pink-600/30 via-red-600/30 to-pink-600/30' 
+                  : 'bg-gradient-to-r from-cyan-600/30 via-purple-600/30 via-pink-600/30 to-yellow-600/30'
+              }`}></div>
+              
+              {/* Effet holographique */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-300/10 via-purple-300/10 to-transparent bg-[length:300%_100%] animate-gradient-x rounded-3xl opacity-30 group-hover:opacity-60 transition-all duration-1000"></div>
+              
+              {/* Fond lumineux animé */}
+              <div className={`absolute inset-0 rounded-3xl blur-xl animate-pulse group-hover:blur-2xl transition-all duration-1000 ${
+                isMobileMenuOpen 
+                  ? 'bg-gradient-to-r from-red-400/20 via-pink-400/20 to-red-400/20' 
+                  : 'bg-gradient-to-r from-cyan-400/20 via-purple-400/20 to-pink-400/20'
+              }`}></div>
+              
+              {/* Effet de particules scintillantes */}
+              <div className="absolute inset-0 overflow-hidden rounded-3xl">
+                {[...Array(3)].map((_, i) => (
+                  <div
+                    key={i}
+                    className="absolute w-0.5 h-0.5 bg-white rounded-full animate-ping opacity-50 group-hover:opacity-90 transition-opacity duration-1000"
+                    style={{
+                      top: `${Math.random() * 100}%`,
+                      left: `${Math.random() * 100}%`,
+                      animationDelay: `${Math.random() * 2}s`,
+                      animationDuration: `${1.5 + Math.random() * 1.5}s`
+                    }}
+                  />
+                ))}
+              </div>
+              
+              {/* Icône Menu/Fermer avec effets multiples */}
+              <div className="relative z-10">
+                <div className="relative">
+                  {/* Icône principale - change selon l'état */}
+                  {isMobileMenuOpen ? (
+                    <X className="w-8 h-8 sm:w-10 sm:h-10 relative z-10 drop-shadow-[0_0_15px_rgba(239,68,68,0.8)]" />
+                  ) : (
+                    <Menu className="w-8 h-8 sm:w-10 sm:h-10 relative z-10 drop-shadow-[0_0_15px_rgba(6,182,212,0.8)]" />
+                  )}
+                  
+                  {/* Effet de lueur externe sur l'icône */}
+                  <div className="absolute inset-0 opacity-30 blur-sm">
+                    {isMobileMenuOpen ? (
+                      <X className="w-8 h-8 sm:w-10 sm:h-10 text-red-400" />
+                    ) : (
+                      <Menu className="w-8 h-8 sm:w-10 sm:h-10 text-cyan-400" />
+                    )}
+                  </div>
+                  
+                  {/* Bordure lumineuse animée autour de l'icône */}
+                  <div className={`absolute -inset-2 rounded-2xl opacity-20 blur-lg animate-pulse ${
+                    isMobileMenuOpen 
+                      ? 'bg-gradient-to-r from-red-400 via-pink-400 via-red-400 to-pink-400' 
+                      : 'bg-gradient-to-r from-cyan-400 via-purple-400 via-pink-400 to-yellow-400'
+                  }`}></div>
+                  
+                  {/* Effet de scan horizontal sur l'icône */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent opacity-0 animate-scan rounded-2xl"></div>
+                  
+                  {/* Reflets cristallins sur l'icône */}
+                  <div className="absolute top-0 left-1/4 w-1/2 h-0.5 bg-gradient-to-r from-transparent via-white/90 to-transparent blur-sm opacity-40"></div>
+                  <div className="absolute bottom-0 right-1/4 w-1/3 h-0.5 bg-gradient-to-r from-transparent via-cyan-300/90 to-transparent blur-sm opacity-30"></div>
+                </div>
+              </div>
+              
+              {/* Particules orbitales autour du bouton */}
+              <div className={`absolute -top-2 -right-2 w-3 h-3 rounded-full animate-ping opacity-60 group-hover:opacity-90 transition-opacity duration-1000 ${
+                isMobileMenuOpen ? 'bg-red-400' : 'bg-cyan-400'
+              }`}></div>
+              <div className="absolute -bottom-2 -left-2 w-3 h-3 bg-purple-400 rounded-full animate-ping opacity-60 group-hover:opacity-90 transition-opacity duration-1000 animation-delay-300"></div>
+              <div className="absolute -top-2 -left-2 w-2 h-2 bg-pink-400 rounded-full animate-ping opacity-50 group-hover:opacity-80 transition-opacity duration-1000 animation-delay-500"></div>
+              <div className="absolute -bottom-2 -right-2 w-2 h-2 bg-yellow-400 rounded-full animate-ping opacity-50 group-hover:opacity-80 transition-opacity duration-1000 animation-delay-700"></div>
+              
+              {/* Anneaux énergétiques qui s'étendent au hover */}
+              <div className="absolute inset-0 rounded-full border-2 border-cyan-400/0 animate-pulse"></div>
+              <div className="absolute inset-0 rounded-full border border-purple-400/0 animate-pulse animation-delay-300"></div>
+            </button>
           </div>
         </div>
 
@@ -410,7 +357,7 @@ export const Navigation: React.FC = () => {
         className={`fixed top-0 left-0 right-0 bg-gradient-to-br from-slate-900/98 via-blue-900/98 to-purple-900/98 backdrop-blur-2xl border-b-2 border-cyan-400/40 shadow-2xl transition-all duration-700 ease-in-out z-[99999] ${
           isMobileMenuOpen 
             ? 'h-screen opacity-100 visible overflow-y-auto pointer-events-auto' 
-            : 'h-0 opacity-0 invisible overflow-hidden pointer-events-none transform -translate-y-full'
+            : 'h-0 opacity-0 invisible overflow-hidden pointer-events-none'
         }`}
         style={{ zIndex: 99999 }}
         onClick={(e) => {
@@ -502,11 +449,6 @@ export const Navigation: React.FC = () => {
                   Menu de Dieu
                 </span>
                 
-                {/* Effet de lueur externe */}
-                <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent opacity-30 blur-sm group-hover:opacity-50 transition-all duration-1000 font-black text-2xl sm:text-5xl tracking-wider whitespace-nowrap">
-                  Menu de Dieu
-                </div>
-                
                 {/* Bordure lumineuse animée */}
                 <div className="absolute -inset-3 bg-gradient-to-r from-cyan-400 via-purple-400 via-pink-400 to-yellow-400 rounded-3xl opacity-30 blur-2xl animate-pulse group-hover:opacity-60 group-hover:blur-3xl transition-all duration-1000"></div>
                 
@@ -521,33 +463,6 @@ export const Navigation: React.FC = () => {
           </div>
           
           {/* Bouton de fermeture X en haut à droite du contenu */}
-          <div className="absolute top-4 right-4 z-50 block sm:block">
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                setIsMobileMenuOpen(false);
-                // Double vérification pour éviter les bugs
-                setTimeout(() => {
-                  setIsMobileMenuOpen(false);
-                }, 50);
-              }}
-              className="relative group bg-gradient-to-r from-slate-700/80 to-slate-600/80 hover:from-red-600/90 hover:to-pink-600/90 text-white rounded-full p-4 transition-all duration-500 transform hover:scale-110 active:scale-95 shadow-2xl border-2 border-red-400/30 hover:border-red-400/60"
-            >
-              {/* Effet de lueur rouge pour la fermeture */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-red-400/20 to-pink-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
-              
-              {/* Icône X avec animation */}
-              <div className="relative z-10 transition-transform duration-300">
-                <X className="w-6 h-6 rotate-180 transition-transform duration-300 group-hover:rotate-0" />
-              </div>
-              
-              {/* Particules animées rouges */}
-              <div className="absolute -top-1 -right-1 w-2 h-2 bg-red-400 rounded-full animate-ping opacity-75"></div>
-              <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-pink-400 rounded-full animate-ping opacity-75 animation-delay-300"></div>
-            </button>
-          </div>
-          
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl w-full mt-12 sm:mt-20 flex-shrink-0">
             {navigationItems.map((item, index) => (
               <Link
@@ -563,7 +478,7 @@ export const Navigation: React.FC = () => {
                     setIsMobileMenuOpen(false);
                   }, 100);
                 }}
-                className={`relative group block p-6 sm:p-8 rounded-2xl sm:rounded-3xl border-2 transition-all duration-300 sm:duration-700 transform hover:scale-105 active:scale-95 ${
+                className={`relative group flex items-center justify-center p-6 sm:p-8 rounded-2xl sm:rounded-3xl border-2 transition-all duration-300 sm:duration-700 transform hover:scale-105 active:scale-95 ${
                   location.pathname === item.path
                     ? `bg-gradient-to-br from-slate-800/95 to-slate-700/95 ${item.borderColor} ${item.shadowColor} shadow-2xl`
                     : `bg-slate-800/95 border-slate-600/50 hover:bg-gradient-to-br hover:from-slate-700/95 hover:to-slate-600/95 ${item.hoverBorderColor} ${item.hoverShadowColor} hover:shadow-2xl`
@@ -582,14 +497,10 @@ export const Navigation: React.FC = () => {
                 </div>
                 
                 {/* Contenu */}
-                <div className="relative z-10 text-center">
-                  <div className="text-5xl sm:text-6xl mb-4 sm:mb-6 transform group-hover:scale-110 transition-transform duration-300 sm:duration-500">
-                    {item.icon}
-                  </div>
-                  <h3 className={`text-xl sm:text-2xl font-bold mb-3 sm:mb-4 ${item.textColor} group-hover:text-white transition-colors duration-300 sm:duration-500`}>
+                <div className="relative z-10">
+                  <h3 className={`text-xl sm:text-2xl font-bold ${item.textColor} group-hover:text-white transition-colors duration-300 sm:duration-500 text-center`}>
                     {item.title}
                   </h3>
-                  <div className={`w-12 sm:w-16 h-1 bg-gradient-to-r ${item.glowFrom} ${item.glowTo} mx-auto rounded-full group-hover:w-16 sm:group-hover:w-24 transition-all duration-300 sm:duration-500`}></div>
                 </div>
                 
                 {/* Effet de scan */}

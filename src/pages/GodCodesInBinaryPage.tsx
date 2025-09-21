@@ -84,10 +84,14 @@ const GodCodingSimulation: React.FC = () => {
   const [isTyping, setIsTyping] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
   
-  // Génération de séquences binaires aléatoires de 10 chiffres
+  // Génération de séquences binaires aléatoires de 15 rangées de 40 chiffres
   const binarySequences = React.useMemo(() => {
     return Array.from({ length: 8 }, () => {
-      return Array.from({ length: 10 }, () => Math.random() > 0.5 ? '1' : '0').join('');
+      // Génère 15 rangées de 40 chiffres binaires chacune
+      const rows = Array.from({ length: 15 }, () => {
+        return Array.from({ length: 40 }, () => Math.random() > 0.5 ? '1' : '0').join('');
+      });
+      return rows.join('\n');
     });
   }, []);
   
@@ -108,7 +112,7 @@ const GodCodingSimulation: React.FC = () => {
       // Taper caractère par caractère
       const typeTimer = setTimeout(() => {
         setCurrentCode(prev => prev + currentSequence[prev.length]);
-      }, 50);
+      }, 0.26); // Ultra rapide pour écrire 600 caractères en ~0.16 secondes (5x plus rapide)
       return () => clearTimeout(typeTimer);
     }
     
@@ -117,7 +121,7 @@ const GodCodingSimulation: React.FC = () => {
       const pauseTimer = setTimeout(() => {
         setIsTyping(false);
         setIsDeleting(true);
-      }, 50); // Suppression presque instantanée (0.05 secondes)
+      }, 2000); // Attendre 2 secondes avant de commencer la suppression
       return () => clearTimeout(pauseTimer);
     }
     
@@ -125,7 +129,7 @@ const GodCodingSimulation: React.FC = () => {
       // Supprimer caractère par caractère
       const deleteTimer = setTimeout(() => {
         setCurrentCode(prev => prev.slice(0, -1));
-      }, 30);
+      }, 0.8); // Suppression très rapide
       return () => clearTimeout(deleteTimer);
     }
     
@@ -137,7 +141,7 @@ const GodCodingSimulation: React.FC = () => {
   }, [isTyping, isDeleting, currentCode, sequenceIndex, binarySequences]);
 
   return (
-    <div className="bg-black/80 backdrop-blur-sm rounded-xl p-4 sm:p-6 border-2 border-yellow-400/50 shadow-2xl">
+    <div className="bg-black/80 backdrop-blur-sm rounded-xl p-4 sm:p-6 border-2 border-yellow-400/50 shadow-2xl w-fit mx-auto">
       <div className="flex items-center mb-4">
         <Code2 className="w-6 h-6 text-yellow-400 mr-2" />
         <h3 className="text-lg sm:text-xl font-bold text-yellow-300">
@@ -145,11 +149,11 @@ const GodCodingSimulation: React.FC = () => {
         </h3>
       </div>
       
-      <div className="bg-gray-900 rounded-lg p-4 font-mono text-green-400 min-h-[60px] flex items-center">
-        <span className="text-sm sm:text-base">
+      <div className="bg-gray-900 rounded-lg p-4 font-mono text-green-400 w-fit">
+        <pre className="text-xs sm:text-sm whitespace-pre leading-tight overflow-x-auto">
           {currentCode}
           {isTyping && <span className="animate-pulse text-green-300">|</span>}
-        </span>
+        </pre>
       </div>
     </div>
   );
@@ -193,7 +197,7 @@ export const GodCodesInBinaryPage: React.FC = () => {
         </header>
 
         {/* Simulation de codage divin */}
-        <div className="max-w-xl mx-auto mb-8 lg:mb-12">
+        <div className="max-w-xl mx-auto mb-8 lg:mb-12 h-[329px] lg:h-[424px] overflow-visible">
           <GodCodingSimulation />
         </div>
 

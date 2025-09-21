@@ -12,7 +12,7 @@ const DivineBinaryDigits: React.FC = () => {
         top: Math.random() * 90 + 5,
         left: Math.random() * 90 + 5,
         opacity: Math.random() * 0.4 + 0.2,
-        size: ['text-sm', 'text-base', 'text-lg', 'text-xl', 'text-2xl'][Math.floor(Math.random() * 5)],
+        size: 'text-xl',
         visible: true,
         nextChangeTime: Date.now() + Math.random() * 100 + 50, // Plus rapide pour l'effet divin
         color: ['#FFD700', '#FFA500', '#FF6347', '#00CED1', '#9370DB'][Math.floor(Math.random() * 5)]
@@ -39,7 +39,7 @@ const DivineBinaryDigits: React.FC = () => {
                 top: Math.random() * 90 + 5,
                 left: Math.random() * 90 + 5,
                 opacity: Math.random() * 0.4 + 0.2,
-                size: ['text-sm', 'text-base', 'text-lg', 'text-xl', 'text-2xl'][Math.floor(Math.random() * 5)],
+                size: 'text-xl',
                 visible: true,
                 nextChangeTime: now + Math.random() * 100 + 50,
                 color: ['#FFD700', '#FFA500', '#FF6347', '#00CED1', '#9370DB'][Math.floor(Math.random() * 5)]
@@ -162,9 +162,10 @@ export const GodCodesInBinaryPage: React.FC = () => {
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8 relative z-10">
         {/* Bouton retour */}
-        <div className="mb-4 sm:mb-6">
+        <div className="mb-4 sm:mb-6 flex justify-center sm:justify-start">
           <Link
             to="/universe"
+            state={{ targetSection: 5 }}
             className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white rounded-lg transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
@@ -178,7 +179,7 @@ export const GodCodesInBinaryPage: React.FC = () => {
             Dieu code en Binaire
           </h1>
           <p className="text-base sm:text-lg lg:text-xl text-yellow-200 max-w-4xl mx-auto px-4 leading-relaxed">
-            À l'échelle de Planck, la réalité devient programmable : chaque 0 et 1 modifie l'univers entier
+            À l'échelle de Planck, la réalité devient programmable en Binaire
           </p>
         </header>
 
@@ -202,23 +203,21 @@ export const GodCodesInBinaryPage: React.FC = () => {
             {/* Nouveau paragraphe d'introduction */}
             <div className="bg-gradient-to-r from-cyan-900/40 to-blue-900/30 backdrop-blur-sm rounded-lg p-4 sm:p-6 border-l-4 border-cyan-400 mb-4 sm:mb-6">
               <p className="text-sm sm:text-base lg:text-lg text-cyan-100 leading-relaxed font-medium">
-                <strong className="text-cyan-300">Rappel de l'analogie :</strong> Dans "L'univers est une application", nous avons vu que notre interface utilisateur (le monde macroscopique) tourne en continu et que chaque modification engendre une cascade descendante qui influence toutes les couches inférieures, jusqu'aux bits binaires à l'échelle de Planck.
-                <br /><br />
-                <strong className="text-yellow-300">Mais ici, nous découvrons que ça marche aussi dans l'autre sens !</strong> Au lieu de subir les modifications qui descendent de l'interface, nous allons voir comment on pourrait modifier l'interface utilisateur en agissant directement sur le code source : les 0 et 1 à l'échelle de Planck. Si une entité divine avait accès à ce niveau fondamental, elle pourrait réécrire la réalité bit par bit.
+                <strong className="text-cyan-300">Rappel de l'analogie :</strong> Dans "L'univers est une application", nous avons vu que chaque composant de notre interface utilisateur (le monde macroscopique) est fait d'une cascade descendante vers toutes les couches inférieures, jusqu'aux bits binaires à l'échelle de Planck. Chaque couche supérieure est la manifestation compilée des couches inférieures, et descendre d'échelle, c'est littéralement 'regarder sous le capot de l'échelle supérieur'. Cette interface tourne en continu. Modifier l'ensemble des 0 et 1 d'un composant depuis l'échelle de Planck, engendrerait les compilations couche par couche instantanément, ce pourrait modifier intégralement un composant de l'univers.
               </p>
             </div>
 
             <div className="space-y-4 sm:space-y-6 text-sm sm:text-base lg:text-lg text-gray-200 leading-relaxed">
               <p>
                 Si l'univers est une application, alors à l'échelle de Planck se trouve son <strong className="text-yellow-300">code source binaire</strong>. 
-                Chaque quantum d'espace-temps peut être vu comme un bit d'information : 0 ou 1, vide ou plein, existence ou néant.
+                Chaque quantum d'espace-temps peut être vu comme un bit d\'information : 0 ou 1, vide ou plein, existence ou néant.
               </p>
               
               <div className="bg-orange-900/40 p-4 sm:p-6 rounded-lg border-l-4 border-orange-400">
                 <h4 className="font-semibold text-orange-200 mb-3">⚖️ L'Échelle des Modifications</h4>
                 <p className="font-medium text-orange-100 mb-2">
                   <strong>Modification locale :</strong> Changer un seul bit (0→1 ou 1→0) ne modifie qu'une seule particule fondamentale, 
-                  qui n'affecte qu'un seul atome, puis qu'une seule molécule, créant un changement microscopique dans la réalité.
+                  qui n'affecte qu\'un seul atome, puis qu\'une seule molécule, créant un changement microscopique dans la réalité.
                 </p>
                 <p className="font-medium text-orange-100">
                   <strong>Modification macroscopique :</strong> Pour des changements visibles (faire apparaître un objet, changer la couleur d'une montagne), 

@@ -5,6 +5,8 @@ import { RelativityCalculatorPage } from './pages/RelativityCalculatorPage';
 import { BlackHoleConceptPage } from './pages/BlackHoleConceptPage';
 import { UniverseAppPage } from './pages/UniverseAppPage';
 import { GodCodesInBinaryPage } from './pages/GodCodesInBinaryPage';
+import { QuantumLabPage } from './pages/QuantumLabPage';
+import { ScaleLabPage } from './pages/ScaleLabPage';
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
           <Route path="/relativity" element={<RelativityCalculatorPage />} />
           <Route path="/black-hole-concept" element={<BlackHoleConceptPage />} />
           <Route path="/god-binary" element={<GodCodesInBinaryPage />} />
+          <Route path="/quantum-lab" element={<QuantumLabPage />} />
+          <Route path="/scale-lab" element={<ScaleLabPage />} />
         </Routes>
       </Router>
     </div>

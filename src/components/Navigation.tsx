@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Zap } from 'lucide-react';
+import { Menu, X, Zap, Microscope } from 'lucide-react';
 
 // Composant pour les chiffres binaires qui se téléportent
 const TeleportingBinaryDigits: React.FC = () => {
@@ -163,8 +163,8 @@ export const Navigation: React.FC = () => {
   
   // Phrases qui changent toutes les 3 secondes
   const phrases = [
-    "Si Dieu avait un menu pour créer l'univers, il ressemblait à ça",
-    "L'univers est un jeu, alors amuse-toi"
+    "Si dieu a un menu, c'est celui-ci",
+    "L'univers est un jeu : amuse-toi"
   ];
   
   // Fermer le menu lors du changement de route avec un délai pour éviter les conflits
@@ -306,6 +306,46 @@ export const Navigation: React.FC = () => {
       dotColor: 'bg-purple-400',
       dotColor2: 'bg-pink-400',
       icon: '🕳️'
+    },
+    {
+      path: '/quantum-lab',
+      title: 'Laboratoire Quantique',
+      shortTitle: 'Laboratoire Quantique',
+      gradient: 'from-teal-500/20 to-cyan-500/20',
+      hoverGradient: 'hover:from-teal-500/10 hover:to-cyan-500/10',
+      textColor: 'text-teal-300',
+      hoverTextColor: 'hover:text-teal-300',
+      borderColor: 'border-teal-400/30',
+      hoverBorderColor: 'hover:border-teal-400/20',
+      shadowColor: 'shadow-teal-500/25',
+      hoverShadowColor: 'hover:shadow-teal-500/20',
+      glowFrom: 'from-teal-400/10',
+      glowTo: 'to-cyan-400/10',
+      hoverGlowFrom: 'from-teal-400/5',
+      hoverGlowTo: 'to-cyan-400/5',
+      dotColor: 'bg-teal-400',
+      dotColor2: 'bg-cyan-400',
+      icon: '🔬'
+    },
+    {
+      path: '/scale-lab',
+      title: 'Laboratoire des Échelles',
+      shortTitle: 'Laboratoire des Échelles',
+      gradient: 'from-emerald-500/20 to-green-500/20',
+      hoverGradient: 'hover:from-emerald-500/10 hover:to-green-500/10',
+      textColor: 'text-emerald-300',
+      hoverTextColor: 'hover:text-emerald-300',
+      borderColor: 'border-emerald-400/30',
+      hoverBorderColor: 'hover:border-emerald-400/20',
+      shadowColor: 'shadow-emerald-500/25',
+      hoverShadowColor: 'hover:shadow-emerald-500/20',
+      glowFrom: 'from-emerald-400/10',
+      glowTo: 'to-green-400/10',
+      hoverGlowFrom: 'from-emerald-400/5',
+      hoverGlowTo: 'to-green-400/5',
+      dotColor: 'bg-emerald-400',
+      dotColor2: 'bg-green-400',
+      icon: '⚖️'
     }
   ];
 
@@ -645,7 +685,7 @@ export const Navigation: React.FC = () => {
           </div>
           
           {/* Bouton de fermeture X en haut à droite du contenu */}
-          <div className="flex flex-col sm:flex-row sm:justify-center gap-6 sm:gap-8 max-w-5xl w-full flex-shrink-0">
+          <div className="flex flex-col sm:flex-row sm:justify-center sm:flex-wrap gap-6 sm:gap-8 max-w-5xl w-full flex-shrink-0">
             {navigationItems.map((item, index) => (
               <Link
                 key={item.path}
@@ -665,6 +705,11 @@ export const Navigation: React.FC = () => {
                     ? `bg-gradient-to-br from-slate-800/95 to-slate-700/95 ${item.borderColor} ${item.shadowColor} shadow-2xl`
                     : `bg-slate-800/95 border-slate-600/50 hover:bg-gradient-to-br hover:from-slate-700/95 hover:to-slate-600/95 ${item.hoverBorderColor} ${item.hoverShadowColor} hover:shadow-2xl`
                 }`}
+                className={`relative group flex items-center justify-center p-6 sm:p-8 lg:p-10 xl:p-12 rounded-2xl sm:rounded-3xl border-2 transition-all duration-300 sm:duration-700 transform hover:scale-105 active:scale-95 flex-1 sm:max-w-xs lg:max-w-sm xl:max-w-md ${
+                  location.pathname === item.path
+                    ? `bg-gradient-to-br from-slate-800/95 to-slate-700/95 ${item.borderColor} ${item.shadowColor} shadow-2xl`
+                    : `bg-slate-800/95 border-slate-600/50 hover:bg-gradient-to-br hover:from-slate-700/95 hover:to-slate-600/95 ${item.hoverBorderColor} ${item.hoverShadowColor} hover:shadow-2xl`
+                }`}
               >
                 {/* Effet de grille futuriste */}
                 <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,182,212,0.1)_1px,transparent_1px),linear-gradient(rgba(6,182,212,0.1)_1px,transparent_1px)] bg-[size:15px_15px] rounded-2xl sm:rounded-3xl opacity-30"></div>
@@ -680,7 +725,7 @@ export const Navigation: React.FC = () => {
                 
                 {/* Contenu */}
                 <div className="relative z-10">
-                  <h3 className={`text-xl sm:text-2xl font-bold ${item.textColor} group-hover:text-white transition-colors duration-300 sm:duration-500 text-center`}>
+                  <h3 className={`text-xl sm:text-2xl lg:text-2xl xl:text-3xl font-bold ${item.textColor} group-hover:text-white transition-colors duration-300 sm:duration-500 text-center whitespace-nowrap`}>
                     {item.title}
                   </h3>
                 </div>

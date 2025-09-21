@@ -82,47 +82,60 @@ const DivineBinaryDigits: React.FC = () => {
 const GodCodingSimulation: React.FC = () => {
   const [currentCode, setCurrentCode] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
   
-  const binarySequences = [
-    '01000111 01001111 01000100', // "GOD" en ASCII
-    '01010101 01001110 01001001 01010110 01000101 01010010 01010011 01000101', // "UNIVERSE"
-    '01000011 01010010 01000101 01000001 01010100 01000101', // "CREATE"
-    '01001100 01001001 01000110 01000101', // "LIFE"
-    '01010100 01001001 01001101 01000101', // "TIME"
-    '01010011 01010000 01000001 01000011 01000101' // "SPACE"
-  ];
+  // Génération de séquences binaires aléatoires de 10 chiffres
+  const binarySequences = React.useMemo(() => {
+    return Array.from({ length: 8 }, () => {
+      return Array.from({ length: 10 }, () => Math.random() > 0.5 ? '1' : '0').join('');
+    });
+  }, []);
   
   const [sequenceIndex, setSequenceIndex] = useState(0);
   
   useEffect(() => {
-    if (!isTyping) {
-      const timer = setTimeout(() => {
+    const currentSequence = binarySequences[sequenceIndex];
+    
+    if (!isTyping && !isDeleting) {
+      // Attendre avant de commencer à taper
+      const startTimer = setTimeout(() => {
         setIsTyping(true);
-        setCurrentCode('');
-        
-        const sequence = binarySequences[sequenceIndex];
-        let charIndex = 0;
-        
-        const typeInterval = setInterval(() => {
-          if (charIndex < sequence.length) {
-            setCurrentCode(prev => prev + sequence[charIndex]);
-            charIndex++;
-          } else {
-            clearInterval(typeInterval);
-            setTimeout(() => {
-              setIsTyping(false);
-              setSequenceIndex(prev => (prev + 1) % binarySequences.length);
-            }, 2000);
-          }
-        }, 100);
-        
-        return () => clearInterval(typeInterval);
-      }, 1000);
-      
-      return () => clearTimeout(timer);
+      }, 200);
+      return () => clearTimeout(startTimer);
     }
-  }, [isTyping, sequenceIndex, binarySequences]);
-  
+    
+    if (isTyping && currentCode.length < currentSequence.length) {
+      // Taper caractère par caractère
+      const typeTimer = setTimeout(() => {
+        setCurrentCode(prev => prev + currentSequence[prev.length]);
+      }, 50);
+      return () => clearTimeout(typeTimer);
+    }
+    
+    if (isTyping && currentCode.length === currentSequence.length) {
+      // Séquence terminée, attendre puis commencer à supprimer
+      const pauseTimer = setTimeout(() => {
+        setIsTyping(false);
+        setIsDeleting(true);
+      }, 50); // Suppression presque instantanée (0.05 secondes)
+      return () => clearTimeout(pauseTimer);
+    }
+    
+    if (isDeleting && currentCode.length > 0) {
+      // Supprimer caractère par caractère
+      const deleteTimer = setTimeout(() => {
+        setCurrentCode(prev => prev.slice(0, -1));
+      }, 30);
+      return () => clearTimeout(deleteTimer);
+    }
+    
+    if (isDeleting && currentCode.length === 0) {
+      // Suppression terminée, passer à la séquence suivante
+      setIsDeleting(false);
+      setSequenceIndex(prev => (prev + 1) % binarySequences.length);
+    }
+  }, [isTyping, isDeleting, currentCode, sequenceIndex, binarySequences]);
+
   return (
     <div className="bg-black/80 backdrop-blur-sm rounded-xl p-4 sm:p-6 border-2 border-yellow-400/50 shadow-2xl">
       <div className="flex items-center mb-4">
@@ -135,12 +148,8 @@ const GodCodingSimulation: React.FC = () => {
       <div className="bg-gray-900 rounded-lg p-4 font-mono text-green-400 min-h-[60px] flex items-center">
         <span className="text-sm sm:text-base">
           {currentCode}
-          {isTyping && <span className="animate-pulse">|</span>}
+          {isTyping && <span className="animate-pulse text-green-300">|</span>}
         </span>
-      </div>
-      
-      <div className="mt-3 text-xs sm:text-sm text-gray-400 italic">
-        Chaque bit modifie instantanément la réalité à tous les niveaux...
       </div>
     </div>
   );
@@ -184,7 +193,7 @@ export const GodCodesInBinaryPage: React.FC = () => {
         </header>
 
         {/* Simulation de codage divin */}
-        <div className="max-w-4xl mx-auto mb-8 lg:mb-12">
+        <div className="max-w-xl mx-auto mb-8 lg:mb-12">
           <GodCodingSimulation />
         </div>
 

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { Code, Layers, Zap, Atom, Cpu, Binary, ChevronDown, ChevronUp, ArrowDown, ChevronLeft, ChevronRight } from 'lucide-react';
 
 // Composant pour les chiffres binaires qui se téléportent
@@ -136,9 +137,7 @@ export const UniverseAppPage: React.FC = () => {
     {
       id: 0,
       icon: <Layers className="w-8 h-8 sm:w-12 sm:h-12" />,
-      applicationTitle: "Interface Utilisateur (Application)",
-      universeTitle: "Monde macroscopique (Univers)",
-      title: "Interface Utilisateur ↔ Monde macroscopique",
+      title: "Échelle macroscopique",
       scale: "10⁻⁴ m à 1 m",
       color: "from-blue-500 to-cyan-500",
       bgGradient: "from-blue-900/30 via-cyan-900/20 to-blue-800/30",
@@ -160,9 +159,7 @@ export const UniverseAppPage: React.FC = () => {
     {
       id: 1,
       icon: <Code className="w-8 h-8 sm:w-12 sm:h-12" />,
-      applicationTitle: "Composants React (Application)",
-      universeTitle: "Molécules (Univers)",
-      title: "Composants React ↔ Molécules",
+      title: "Échelle moléculaire",
       scale: "10⁻⁹ à 10⁻⁶ m",
       color: "from-green-500 to-emerald-500",
       bgGradient: "from-green-900/30 via-emerald-900/20 to-green-800/30",
@@ -184,9 +181,7 @@ export const UniverseAppPage: React.FC = () => {
     {
       id: 2,
       icon: <Zap className="w-8 h-8 sm:w-12 sm:h-12" />,
-      applicationTitle: "JavaScript (Application)",
-      universeTitle: "Atomes (Univers)",
-      title: "JavaScript ↔ Atomes",
+      title: "Échelle atomique",
       scale: "10⁻¹⁰ m",
       color: "from-yellow-500 to-orange-500",
       bgGradient: "from-yellow-900/30 via-orange-900/20 to-yellow-800/30",
@@ -208,9 +203,7 @@ export const UniverseAppPage: React.FC = () => {
     {
       id: 3,
       icon: <Atom className="w-8 h-8 sm:w-12 sm:h-12" />,
-      applicationTitle: "C / C++ (Application)",
-      universeTitle: "Nucléons (Univers)",
-      title: "C / C++ ↔ Nucléons",
+      title: "Échelle nucléaire",
       scale: "10⁻¹⁵ m",
       color: "from-purple-500 to-violet-500",
       bgGradient: "from-purple-900/30 via-violet-900/20 to-purple-800/30",
@@ -232,9 +225,7 @@ export const UniverseAppPage: React.FC = () => {
     {
       id: 4,
       icon: <Cpu className="w-8 h-8 sm:w-12 sm:h-12" />,
-      applicationTitle: "Instructions processeur (Application)",
-      universeTitle: "Particules fondamentales (Univers)",
-      title: "Instructions processeur ↔ Particules fondamentales",
+      title: "Échelle des particules fondamentales",
       scale: "10⁻¹⁸ m",
       color: "from-red-500 to-pink-500",
       bgGradient: "from-red-900/30 via-pink-900/20 to-red-800/30",
@@ -256,9 +247,7 @@ export const UniverseAppPage: React.FC = () => {
     {
       id: 5,
       icon: <Binary className="w-8 h-8 sm:w-12 sm:h-12" />,
-      applicationTitle: "0 et 1 (Application)",
-      universeTitle: "Échelle de Planck (Univers)",
-      title: "0 et 1 ↔ Échelle de Planck",
+      title: "Échelle de Planck",
       scale: "10⁻³⁵ m",
       color: "from-gray-600 to-slate-600",
       bgGradient: "from-gray-900/30 via-slate-900/20 to-gray-800/30",
@@ -398,12 +387,9 @@ export const UniverseAppPage: React.FC = () => {
                   )}
                   
                   <div className="bg-white/10 backdrop-blur-sm rounded-lg px-3 py-2 inline-block border border-white/20">
-                    <div className="flex items-center justify-center space-x-2 sm:space-x-3 text-xs sm:text-sm lg:text-base font-bold text-cyan-300">
-                      <span>{currentSectionData.content.universe.split(',')[0]}</span>
-                      <div className="w-1 h-1 bg-cyan-400 rounded-full animate-pulse"></div>
-                      <span className="text-yellow-300">{currentSectionData.scale}</span>
-                      <div className="w-1 h-1 bg-cyan-400 rounded-full animate-pulse"></div>
-                      <span>{currentSectionData.content.application.split(',')[0]}</span>
+                    <div className="text-xs sm:text-sm lg:text-base font-bold text-center">
+                      <span className="text-white">{currentSectionData.title}</span>
+                      <span className="text-cyan-300 font-mono ml-2">{currentSectionData.scale}</span>
                     </div>
                   </div>
                 </div>
@@ -414,7 +400,7 @@ export const UniverseAppPage: React.FC = () => {
                   <div className="bg-gradient-to-br from-purple-900/50 to-indigo-900/40 backdrop-blur-sm rounded-xl p-3 sm:p-4 border-2 border-purple-400/40 shadow-2xl">
                     <div className="bg-purple-800/30 backdrop-blur-sm rounded-lg px-3 py-2 mb-3 border border-purple-300/30">
                       <h3 className="text-base sm:text-lg font-bold text-purple-200 text-center">
-                      Univers : {currentSectionData.content.universe.split(',')[0]}
+                        Univers : {currentSectionData.content.universe.split(',')[0]}
                       </h3>
                     </div>
                     <p className="text-gray-200 text-xs sm:text-sm leading-relaxed mb-2 sm:mb-3">
@@ -465,7 +451,7 @@ export const UniverseAppPage: React.FC = () => {
                   <div className="bg-gradient-to-br from-blue-900/50 to-cyan-900/40 backdrop-blur-sm rounded-xl p-3 sm:p-4 border-2 border-blue-400/40 shadow-2xl">
                     <div className="bg-blue-800/30 backdrop-blur-sm rounded-lg px-3 py-2 mb-3 border border-blue-300/30">
                       <h3 className="text-base sm:text-lg font-bold text-blue-200 text-center">
-                      Application : {currentSectionData.content.application.split(',')[0]}
+                        Application : {currentSectionData.content.application.split(',')[0]}
                       </h3>
                     </div>
                     <p className="text-gray-200 text-xs sm:text-sm leading-relaxed mb-2 sm:mb-3">
@@ -514,7 +500,7 @@ export const UniverseAppPage: React.FC = () => {
                 </div>
 
                 {/* Bouton Rétrécir pour les pages d'échelles */}
-                {currentSection < sections.length - 2 && (
+                {currentSection < sections.length - 2 && currentSection !== 5 && (
                   <div className="flex justify-center mt-4 sm:mt-6 mb-2 sm:mb-3">
                     <button
                       onClick={goToLowerScale}
@@ -524,6 +510,63 @@ export const UniverseAppPage: React.FC = () => {
                         <span className="text-xs sm:text-sm font-bold transition-all duration-500 group-hover:text-xs sm:group-hover:text-sm group-hover:font-extrabold text-center leading-tight">Rétrécir</span>
                       </div>
                     </button>
+                  </div>
+                )}
+
+                {/* Bouton spécial "Dieu code en Binaire" pour l'échelle de Planck */}
+                {currentSection === 5 && (
+                  <div className="flex justify-center mt-4 sm:mt-6 mb-2 sm:mb-3">
+                    <Link
+                      to="/god-binary"
+                      className="group relative bg-gradient-to-r from-yellow-600 via-orange-600 to-red-600 hover:from-yellow-700 hover:via-orange-700 hover:to-red-700 text-white rounded-full px-8 py-4 sm:px-12 sm:py-6 shadow-2xl transition-all duration-700 transform hover:scale-115 active:scale-95 border-4 border-yellow-400/60 hover:border-yellow-300/80 overflow-hidden"
+                    >
+                      {/* Effet de lueur divine */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/30 via-orange-400/30 to-red-400/30 rounded-full blur-2xl animate-pulse group-hover:blur-3xl transition-all duration-700"></div>
+                      
+                      {/* Particules divines */}
+                      <div className="absolute inset-0 overflow-hidden rounded-full">
+                        {[...Array(12)].map((_, i) => (
+                          <div
+                            key={i}
+                            className="absolute w-1 h-1 bg-yellow-300 rounded-full animate-ping opacity-80 group-hover:opacity-100"
+                            style={{
+                              top: `${Math.random() * 100}%`,
+                              left: `${Math.random() * 100}%`,
+                              animationDelay: `${Math.random() * 3}s`,
+                              animationDuration: `${1 + Math.random() * 2}s`
+                            }}
+                          />
+                        ))}
+                      </div>
+                      
+                      {/* Anneaux énergétiques orbitaux */}
+                      <div className="absolute -inset-4 border-2 border-yellow-400/30 rounded-full animate-spin opacity-40 group-hover:opacity-70 transition-all duration-700" style={{ animationDuration: '8s' }}></div>
+                      <div className="absolute -inset-6 border border-orange-400/20 rounded-full animate-spin opacity-30 group-hover:opacity-60 transition-all duration-700" style={{ animationDuration: '12s', animationDirection: 'reverse' }}></div>
+                      <div className="absolute -inset-8 border border-red-400/15 rounded-full animate-spin opacity-20 group-hover:opacity-50 transition-all duration-700" style={{ animationDuration: '16s' }}></div>
+                      
+                      {/* Effet de scan divin */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-1000 animate-scan rounded-full"></div>
+                      
+                      {/* Effet de pulsation divine */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/20 via-orange-500/20 to-red-500/20 rounded-full animate-pulse opacity-50 group-hover:opacity-80 transition-all duration-700"></div>
+                      
+                      {/* Contenu du bouton */}
+                      <div className="relative z-10 flex items-center justify-center">
+                        <Binary className="w-6 h-6 sm:w-8 sm:h-8 mr-2 sm:mr-3 group-hover:animate-pulse drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]" />
+                        <span className="text-base sm:text-lg lg:text-xl font-black whitespace-nowrap group-hover:text-yellow-100 transition-colors duration-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.6)]">
+                          Dieu code en Binaire
+                        </span>
+                      </div>
+                      
+                      {/* Bordure lumineuse animée */}
+                      <div className="absolute -inset-3 bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400 rounded-full opacity-40 blur-xl animate-pulse group-hover:opacity-80 group-hover:blur-2xl transition-all duration-700"></div>
+                      
+                      {/* Particules orbitales externes */}
+                      <div className="absolute -top-3 -right-3 w-4 h-4 bg-yellow-400 rounded-full animate-ping opacity-60 group-hover:opacity-90 transition-opacity duration-700"></div>
+                      <div className="absolute -bottom-3 -left-3 w-4 h-4 bg-orange-400 rounded-full animate-ping opacity-60 group-hover:opacity-90 transition-opacity duration-700 animation-delay-300"></div>
+                      <div className="absolute -top-3 -left-3 w-3 h-3 bg-red-400 rounded-full animate-ping opacity-50 group-hover:opacity-80 transition-opacity duration-700 animation-delay-500"></div>
+                      <div className="absolute -bottom-3 -right-3 w-3 h-3 bg-yellow-300 rounded-full animate-ping opacity-50 group-hover:opacity-80 transition-opacity duration-700 animation-delay-700"></div>
+                    </Link>
                   </div>
                 )}
               </div>

@@ -156,7 +156,7 @@ export const UniverseAppPage: React.FC = () => {
         universeExamples: "êtres humains, animaux, arbres, montagnes, océans, objets du quotidien",
         applicationConnections: {
           above: null,
-          below: "l'UI est générée par les composants React."
+          below: "l'UI est générée par du HTML/CSS."
         },
         universeConnections: {
           above: null,
@@ -173,18 +173,18 @@ export const UniverseAppPage: React.FC = () => {
       color: "from-green-500 to-emerald-500",
       bgGradient: "from-green-900/30 via-emerald-900/20 to-green-800/30",
       content: {
-        application: "Composants React, briques réutilisables qui définissent logique et apparence. Chaque composant est écrit en JavaScript.",
+        application: "HTML/CSS (DOM), le langage qui décrit la réalité et son fonctionnement.",
         universe: "Molécules, assemblages d'atomes qui portent des propriétés fonctionnelles (ADN, protéines, matériaux).",
         universeExamples: "eau (H₂O), dioxygène (O₂), dioxyde de carbone (CO₂), ADN, protéines, lipides, plastiques, métaux",
         applicationConnections: {
-          above: "les composants React construisent l'interface utilisateur.",
-          below: "les composants React sont écrits en JavaScript."
+          above: "l'HTML/CSS construit l'interface utilisateur.",
+          below: "l'HTML/CSS est généré par les composants React."
         },
         universeConnections: {
           above: "les molécules forment le monde macroscopique.",
           below: "les molécules sont constituées d'atomes."
         },
-        connectionHorizontal: "les composants React encapsulent du code pour donner un rôle précis, comme les molécules encapsulent des atomes pour leur donner des propriétés nouvelles."
+        connectionHorizontal: "l'HTML/CSS structure et stylise le contenu pour créer une interface, comme les molécules organisent les atomes pour créer des propriétés fonctionnelles."
       }
     },
     {
@@ -195,18 +195,18 @@ export const UniverseAppPage: React.FC = () => {
       color: "from-yellow-500 to-orange-500",
       bgGradient: "from-yellow-900/30 via-orange-900/20 to-yellow-800/30",
       content: {
-        application: "JavaScript, langage universel et flexible, base de React.",
+        application: "Composants React, briques réutilisables qui définissent logique et apparence.",
         universe: "Atomes, briques fondamentales de la matière (électrons + noyau).",
         universeExamples: "hydrogène (H), oxygène (O), carbone (C), fer (Fe), uranium (U)",
         applicationConnections: {
-          above: "JavaScript est utilisé pour écrire des composants React.",
-          below: "JavaScript est exécuté par des moteurs en C/C++."
+          above: "les composants React génèrent l'HTML/CSS.",
+          below: "les composants React sont écrits en JavaScript."
         },
         universeConnections: {
           above: "les atomes se combinent pour former des molécules.",
           below: "les atomes sont constitués de nucléons."
         },
-        connectionHorizontal: "JavaScript est une syntaxe universelle qui permet d'assembler du code, comme les atomes offrent une grammaire universelle pour assembler la matière."
+        connectionHorizontal: "les composants React sont des briques réutilisables qui s'assemblent pour créer des interfaces, comme les atomes sont des briques fondamentales qui s'assemblent pour créer la matière."
       }
     },
     {
@@ -217,18 +217,18 @@ export const UniverseAppPage: React.FC = () => {
       color: "from-purple-500 to-violet-500",
       bgGradient: "from-purple-900/30 via-violet-900/20 to-purple-800/30",
       content: {
-        application: "C et C++, langages systèmes robustes, fondations des moteurs d'exécution.",
+        application: "JavaScript, langage universel et flexible, base de React.",
         universe: "Nucléons (protons et neutrons), structures qui stabilisent les atomes.",
         universeExamples: "protons et neutrons dans les noyaux atomiques (hydrogène, hélium, carbone…)",
         applicationConnections: {
-          above: "C/C++ fait tourner les moteurs JavaScript.",
-          below: "C/C++ est compilé en instructions processeur."
+          above: "JavaScript est utilisé pour écrire des composants React.",
+          below: "JavaScript est exécuté par des moteurs en C/C++."
         },
         universeConnections: {
           above: "les nucléons forment les noyaux atomiques.",
           below: "les nucléons sont constitués de quarks liés par des gluons."
         },
-        connectionHorizontal: "C/C++ fournit une ossature stable pour exécuter les langages supérieurs, comme les nucléons fournissent une stabilité structurelle aux atomes."
+        connectionHorizontal: "JavaScript est une syntaxe universelle qui permet d'assembler du code, comme les nucléons offrent une structure stable pour assembler les atomes."
       }
     },
     {
@@ -239,18 +239,18 @@ export const UniverseAppPage: React.FC = () => {
       color: "from-red-500 to-pink-500",
       bgGradient: "from-red-900/30 via-pink-900/20 to-red-800/30",
       content: {
-        application: "Instructions processeur (assembleur, opcodes : ADD, MOV, JMP), ordres élémentaires traduits en binaire.",
+        application: "C et C++, langages systèmes robustes, fondations des moteurs d'exécution.",
         universe: "Particules fondamentales : fermions (quarks et leptons) = la matière, bosons (photon, gluon, W/Z, Higgs) = les forces.",
         universeExamples: "Quarks (up, down, charm, strange, top, bottom), Leptons (électron, neutrinos, muons, taus), Bosons (photon, gluon, W, Z, Higgs)",
         applicationConnections: {
-          above: "les instructions exécutent le code C/C++.",
-          below: "les instructions sont traduites en 0 et 1."
+          above: "C/C++ fait tourner les moteurs JavaScript.",
+          below: "C/C++ est compilé en 0 et 1."
         },
         universeConnections: {
           above: "les particules fondamentales forment les nucléons.",
           below: "les particules reposent sur l'échelle de Planck."
         },
-        connectionHorizontal: "les instructions sont les ordres élémentaires de l'application, comme les particules sont les entités élémentaires de la matière et des forces."
+        connectionHorizontal: "C/C++ fournit une ossature stable pour exécuter les langages supérieurs, comme les particules fondamentales fournissent les composants élémentaires de la matière et des forces."
       }
     },
     {
@@ -261,18 +261,18 @@ export const UniverseAppPage: React.FC = () => {
       color: "from-gray-600 to-slate-600",
       bgGradient: "from-gray-900/30 via-slate-900/20 to-gray-800/30",
       content: {
-        application: "Bits binaires, une mer de 0 et 1, sans signification isolée mais base de toute information.",
+        application: "0 et 1 (Binaire), les informations élémentaires de la réalité.",
         universe: "Échelle de Planck, granularité ultime de l'espace-temps.",
-        universeExamples: "granularité minimale de l'espace-temps (quanta hypothétiques), niveau où les lois de la relativité et de la mécanique quantique cessent de s'appliquer séparément",
+        universeExamples: null,
         applicationConnections: {
-          above: "les 0 et 1 composent les instructions processeur.",
+          above: "les 0 et 1 sont le résultat de la compilation du code C/C++.",
           below: null
         },
         universeConnections: {
           above: "l'échelle de Planck donne naissance aux particules fondamentales.",
           below: null
         },
-        connectionHorizontal: "les 0 et 1 sont les briques minimales de l'information, comme l'échelle de Planck est la brique minimale de la réalité physique."
+        connectionHorizontal: "les 0 et 1 sont les informations élémentaires de l'application, comme l'échelle de Planck contient les informations élémentaires de la réalité physique."
       }
     }
   ];
@@ -359,7 +359,7 @@ export const UniverseAppPage: React.FC = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-6">
                     <div className="space-y-3">
                       <h3 className="text-base sm:text-lg font-bold text-emerald-200 mb-3 sm:mb-4">
-                        🌌 Cascade Universelle (Physique)
+                        Cascade Universelle (Physique)
                       </h3>
                       
                       <div className="space-y-2 sm:space-y-3">
@@ -397,21 +397,21 @@ export const UniverseAppPage: React.FC = () => {
                     
                     <div className="space-y-3">
                       <h3 className="text-base sm:text-lg font-bold text-emerald-200 mb-3 sm:mb-4">
-                        💻 Cascade Informatique (Logicielle)
+                        Cascade Informatique (Logicielle)
                       </h3>
                       
                       <div className="space-y-2 sm:space-y-3">
                         {[
                           { 
-                            level: "Interface", 
-                            desc: "Ce que nous voyons : pages web, applications", 
-                            connection: "→ Rendu généré par la compilation des composants React",
+                            level: "Interface utilisateur", 
+                            desc: "Ce que nous voyons : humains, objets, monde visible", 
+                            connection: "→ Rendu généré par la du HTML/CSS",
                             color: "bg-purple-900/40 border-purple-400" 
                           },
                           { 
-                            level: "React", 
-                            desc: "Composants réutilisables : boutons, formulaires", 
-                            connection: "→ Logique et structure définies par le code JavaScript",
+                            level: "HTML/CSS", 
+                            desc: "L'HTML et le CSS décrive la réalité et son fonctionnement", 
+                            connection: "→ L'HTML et le CSS sont généré par les composants Reacts",
                             color: "bg-blue-900/40 border-blue-400" 
                           }
                         ].map((item, index) => (
@@ -434,7 +434,7 @@ export const UniverseAppPage: React.FC = () => {
                     <div className="flex items-center mb-3 sm:mb-4">
                       <Atom className="w-6 h-6 sm:w-8 sm:h-8 mr-2 sm:mr-3 text-indigo-400" />
                       <h3 className="text-base sm:text-lg lg:text-xl font-bold text-indigo-300">
-                        🌀 Transition vers la Superposition Quantique
+                        Transition vers la Superposition Quantique
                       </h3>
                     </div>
                     <div className="space-y-3 sm:space-y-4 text-xs sm:text-sm lg:text-base text-gray-200 leading-relaxed">
@@ -445,7 +445,9 @@ export const UniverseAppPage: React.FC = () => {
                         <strong className="text-cyan-300">Dans l'univers :</strong> à cette échelle, les entités physiques (atomes, électrons, particules) existent dans plusieurs états à la fois. Dans l'<strong className="text-purple-300">expérience de la double fente</strong>, par exemple, un électron ou un atome passe simultanément par les deux fentes, créant des interférences avec lui-même. Leur existence est une <strong className="text-yellow-300">probabilité</strong> diffuse jusqu'à ce qu\'une observation ou une mesure "effondre" cette superposition en un état défini.
                       </p>
                       <p>
-                        <strong className="text-green-300">Dans l'application :</strong> en suivant cette logique, le code Java Script d'un composant n'existe pas sous une seule forme fixe. Il est une <strong className="text-yellow-300">probabilité</strong> parmi une infinité de façons possibles de l'écrire. Ce n'est qu'au moment où l'on "observe" sous le capot d'un composant React que le code se matérialise dans une version précise, comme si l'acte d'inspection faisait émerger une implémentation unique parmi toutes les possibilités.
+                        <strong className="text-green-300">Dans l'application :</strong> En suivant cette logique, l’organisation des composants React qui produit le HTML et le CSS n’existe pas sous une forme unique et figée. Elle se déploie comme un ensemble de <strong className="text-yellow-300">probabilités</strong> d’agencements possibles. Ce n’est qu’au moment où l’on observe cette organisation que les composants “choisissent” une configuration particulière.
+
+De même, le JavaScript qui compose un composant React n’existe pas à l’avance sous une seule écriture. Il est une <strong className="text-yellow-300">probabilité</strong> parmi une infinité de manières de produire le même rendu. Ce n’est qu’au moment où l’on “ouvre” le composant et que l’on regarde sous son capot que le code se matérialise dans une version précise, comme si l’acte d’observation faisait émerger une implémentation unique parmi toutes les possibilités.
                       </p>
                     </div>
                   </div>
@@ -454,7 +456,7 @@ export const UniverseAppPage: React.FC = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                     <div className="space-y-3">
                       <h3 className="text-base sm:text-lg font-bold text-emerald-200 mb-3 sm:mb-4">
-                        🌌 Cascade Universelle (Physique) - Suite
+                        Cascade Universelle (Physique) - Suite
                       </h3>
                       
                       <div className="space-y-2 sm:space-y-3">
@@ -463,21 +465,21 @@ export const UniverseAppPage: React.FC = () => {
                             level: "Échelle atomique", 
                             scale: "10⁻¹⁰ m", 
                             desc: "Briques de la matière en superposition quantique : hydrogène, carbone, fer", 
-                            connection: "→ Stabilité et identité chimique données par le noyau",
+                            connection: "→ Formés par l’assemblage de protons, neutrons et électrons",
                             color: "bg-green-900/40 border-green-400" 
                           },
                           { 
                             level: "Échelle nucléaire", 
                             scale: "10⁻¹⁵ m", 
                             desc: "Cœur des atomes révélé par observation : protons et neutrons", 
-                            connection: "→ Masse et charge électrique définies par les quarks",
+                            connection: "→ Constitués de protons et de neutrons eux-mêmes composés de quarks",
                             color: "bg-yellow-900/40 border-yellow-400" 
                           },
                           { 
                             level: "Échelle des particules fondamentales", 
                             scale: "10⁻¹⁸ m", 
                             desc: "Constituants ultimes révélés par mesure : quarks, leptons, bosons", 
-                            connection: "→ Existence même permise par la géométrie de l'espace-temps",
+                            connection: "→ Révélées comme briques ultimes",
                             color: "bg-orange-900/40 border-orange-400" 
                           },
                           { 
@@ -506,27 +508,27 @@ export const UniverseAppPage: React.FC = () => {
                     
                     <div className="space-y-3">
                       <h3 className="text-base sm:text-lg font-bold text-emerald-200 mb-3 sm:mb-4">
-                        💻 Cascade Informatique (Logicielle) - Suite
+                        Cascade Informatique (Logicielle) - Suite
                       </h3>
                       
                       <div className="space-y-2 sm:space-y-3">
                         {[
                           { 
-                            level: "JavaScript", 
+                            level: "Composants React", 
+                            desc: "Composants réutilisables : boutons, formulaires", 
+                            connection: "→ Logique et structure définies par le code JavaScript",
+                            color: "bg-green-900/40 border-green-400" 
+                          },
+                          { 
+                            level: "Java Script", 
                             desc: "Langage en superposition de code : fonctions, variables, logique", 
                             connection: "→ Exécution assurée par les moteurs écrits en C/C++",
-                            color: "bg-green-900/40 border-green-400" 
+                            color: "bg-yellow-900/40 border-yellow-400" 
                           },
                           { 
                             level: "C/C++", 
                             desc: "Fondations système révélées par inspection : moteurs d'exécution", 
                             connection: "→ Compilation vers des instructions processeur spécifiques",
-                            color: "bg-yellow-900/40 border-yellow-400" 
-                          },
-                          { 
-                            level: "Instructions", 
-                            desc: "Ordres processeur révélés par décompilation : ADD, MOV, JMP", 
-                            connection: "→ Traduction directe en séquences de 0 et 1",
                             color: "bg-orange-900/40 border-orange-400" 
                           },
                           { 
@@ -552,7 +554,9 @@ export const UniverseAppPage: React.FC = () => {
                   
                   <div className="mt-4 sm:mt-6 bg-gradient-to-r from-cyan-900/40 to-blue-900/30 backdrop-blur-sm rounded-lg p-3 sm:p-4 border-l-4 border-cyan-400">
                     <p className="text-xs sm:text-sm lg:text-base text-cyan-100 leading-relaxed font-medium">
-                      <strong className="text-cyan-300">Chaque couche encapsule la précédente :</strong> Votre écran affiche une interface, compilée depuis React, écrit en JavaScript, exécuté par du C/C++, traduit en instructions processeur, converties en 0 et 1. De même, votre corps est fait de molécules, constituées d'atomes, formés de nucléons, composés de particules, reposant sur l\'échelle de Planck. <strong className="text-purple-300">Mais à partir de l\'échelle atomique, tout existe en superposition quantique jusqu\'à ce qu\'on "regarde sous le capot".</strong>
+                      <strong className="text-cyan-300">Chaque couche encapsule la précédente :</strong> L’interface utilisateur que vous voyez est générée par du HTML et du CSS, eux-mêmes issus des composants React, écrits en JavaScript, exécutés par du C/C++, traduits en instructions processeur et finalement convertis en 0 et 1.
+
+De la même façon, votre corps est constitué de molécules, elles-mêmes faites d’atomes, formés de nucléons, composés de particules fondamentales, qui reposent à leur tour sur l’échelle de Planck. <strong className="text-purple-300">Mais à partir de l'échelle atomique, tout existe en superposition quantique jusqu'à ce qu'on "regarde sous le capot".</strong>
                     </p>
                   </div>
                 </div>
@@ -774,7 +778,7 @@ export const UniverseAppPage: React.FC = () => {
                       <div className="relative z-10 flex items-center justify-center">
                         <Binary className="w-6 h-6 sm:w-8 sm:h-8 mr-2 sm:mr-3 group-hover:animate-pulse drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]" />
                         <span className="text-base sm:text-lg lg:text-xl font-black whitespace-nowrap group-hover:text-yellow-100 transition-colors duration-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.6)]">
-                          Bonus
+                          Dieu Code en Binaire
                         </span>
                       </div>
                       

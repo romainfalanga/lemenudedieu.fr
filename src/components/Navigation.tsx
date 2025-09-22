@@ -513,7 +513,7 @@ export const Navigation: React.FC = () => {
 
       {/* Menu Étendu - S'étend vers le bas depuis la barre de navigation */}
       <div 
-        className={`fixed top-0 left-0 right-0 bg-gradient-to-br from-slate-900/98 via-blue-900/98 to-purple-900/98 backdrop-blur-2xl border-b-2 border-cyan-400/40 shadow-2xl transition-all duration-700 ease-in-out z-[99999] ${
+        className={`fixed top-0 left-0 right-0 bg-gradient-to-br from-slate-900/98 via-blue-900/98 to-purple-900/98 backdrop-blur-2xl border-b-2 border-cyan-400/40 shadow-2xl transition-all duration-700 ease-in-out z-[99999] overflow-hidden ${
           isMobileMenuOpen 
             ? 'h-screen opacity-100 visible overflow-y-auto pointer-events-auto' 
             : 'h-0 opacity-0 invisible overflow-hidden pointer-events-none'
@@ -701,11 +701,6 @@ export const Navigation: React.FC = () => {
                   }, 100);
                 }}
                 className={`relative group flex items-center justify-center p-6 sm:p-8 rounded-2xl sm:rounded-3xl border-2 transition-all duration-300 sm:duration-700 transform hover:scale-105 active:scale-95 flex-1 sm:max-w-xs ${
-                  location.pathname === item.path
-                    ? `bg-gradient-to-br from-slate-800/95 to-slate-700/95 ${item.borderColor} ${item.shadowColor} shadow-2xl`
-                    : `bg-slate-800/95 border-slate-600/50 hover:bg-gradient-to-br hover:from-slate-700/95 hover:to-slate-600/95 ${item.hoverBorderColor} ${item.hoverShadowColor} hover:shadow-2xl`
-                }`}
-                className={`relative group flex items-center justify-center p-6 sm:p-8 lg:p-10 xl:p-12 rounded-2xl sm:rounded-3xl border-2 transition-all duration-300 sm:duration-700 transform hover:scale-105 active:scale-95 flex-1 sm:max-w-xs lg:max-w-sm xl:max-w-md ${
                   location.pathname === item.path
                     ? `bg-gradient-to-br from-slate-800/95 to-slate-700/95 ${item.borderColor} ${item.shadowColor} shadow-2xl`
                     : `bg-slate-800/95 border-slate-600/50 hover:bg-gradient-to-br hover:from-slate-700/95 hover:to-slate-600/95 ${item.hoverBorderColor} ${item.hoverShadowColor} hover:shadow-2xl`

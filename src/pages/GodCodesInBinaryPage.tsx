@@ -429,25 +429,12 @@ export const GodCodesInBinaryPage: React.FC = () => {
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8 relative z-10">
         {/* Bouton retour */}
-        <div className="mb-4 sm:mb-6 flex justify-center sm:justify-start">
-          <Link
-            to="/universe"
-            state={{ targetSection: 5 }}
-            className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white rounded-lg transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg"
-          >
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Retour à l'échelle de Planck
-          </Link>
-        </div>
 
         {/* En-tête */}
         <header className="text-center mb-6 sm:mb-8 lg:mb-12">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-yellow-300 via-orange-300 via-red-300 to-purple-300 bg-clip-text text-transparent bg-[length:400%_400%] animate-gradient-x drop-shadow-[0_0_30px_rgba(255,215,0,0.8)] mb-3 sm:mb-4 px-2">
             Dieu code en Binaire
           </h1>
-          <p className="text-base sm:text-lg lg:text-xl text-yellow-200 max-w-4xl mx-auto px-4 leading-relaxed">
-            À l'échelle de Planck, la réalité devient programmable en Binaire
-          </p>
         </header>
 
         {/* Simulation de codage divin */}
@@ -467,17 +454,27 @@ export const GodCodesInBinaryPage: React.FC = () => {
               </h2>
             </div>
             
-            {/* Nouveau paragraphe d'introduction */}
-            <div className="bg-gradient-to-r from-cyan-900/40 to-blue-900/30 backdrop-blur-sm rounded-lg p-4 sm:p-6 border-l-4 border-cyan-400 mb-4 sm:mb-6">
-              <p className="text-sm sm:text-base lg:text-lg text-cyan-100 leading-relaxed font-medium">
-                <strong className="text-cyan-300">Rappel de l'analogie :</strong> Dans "L'univers est une application", nous avons vu que chaque composant de notre interface utilisateur (le monde macroscopique) est fait d'une cascade descendante vers toutes les couches inférieures, jusqu'aux bits binaires à l'échelle de Planck. Chaque couche supérieure est la manifestation compilée des couches inférieures, et descendre d'échelle, c'est littéralement 'regarder sous le capot de l'échelle supérieur'. Cette interface tourne en continu. Modifier l'ensemble des 0 et 1 d'un composant depuis l'échelle de Planck, engendrerait les compilations couche par couche instantanément des échelles supérieur, ce qui pourrait modifier intégralement un composant de l'univers. Il serait même possible de créer des composants en codant en binaire à depuis l'échelle de Planck.
-              </p>
-            </div>
-
+            <p className="text-sm sm:text-base lg:text-lg text-cyan-100 leading-relaxed font-medium mb-4 sm:mb-6">
+              <strong className="text-cyan-300">Rappel de l'analogie : </strong> 
+              Si l'univers est une application, son code source binaire se trouve à l'échelle des particules fondamentales. Modifier l'ensemble des 0 et 1 d'un composant depuis cette échelle engendrerait les compilations couche par couche des échelles supérieures, jusqu'à modifier intégralement un composant de l'univers.
+            </p>
+            
             <div className="space-y-4 sm:space-y-6 text-sm sm:text-base lg:text-lg text-gray-200 leading-relaxed">
-              <p>
-                Si l'univers est une application, son code source binaire se trouve à l'échelle de Planck, où chaque quantum d'espace-temps agit comme un bit d'information (0 ou 1). Une modification locale d'un seul bit n'engendrerait qu'un changement microscopique dans la réalité. Cependant, pour des changements macroscopiques visibles, une quantité astronomique de bits devrait être modifiée de manière parfaitement coordonnée. Une entité capable de manipuler directement ces "bits de réalité" pourrait orchestrer des "miracles" en réécrivant la réalité depuis ses fondations les plus profondes, comme le représente la simulation de codage binaire ci-dessus, mais à une échelle infiniment plus vaste.
-              </p>
+              {/* Bloc Mécanique Quantique */}
+              <div className="bg-gradient-to-r from-indigo-900/40 to-purple-900/30 backdrop-blur-sm rounded-lg p-4 sm:p-6 border-l-4 border-indigo-400 shadow-xl">
+                <p className="text-sm sm:text-base lg:text-lg text-gray-200 leading-relaxed">
+                  <strong className="text-indigo-300">Mécanique Quantique : </strong> 
+                  En prenant en compte la mécanique quantique dans ce schéma, les composants React, le JavaScript et même les 0 et 1 n'existent pas de manière déterminée tant qu'on ne les observe pas. Ils existent sous forme de probabilités, et l'acte d'observer les contraint à « choisir » une seule manière d'être.
+                </p>
+              </div>
+              
+              {/* Bloc Modifier la Réalité - Fusion des deux derniers blocs */}
+              <div className="bg-gradient-to-r from-purple-900/40 to-red-900/30 backdrop-blur-sm rounded-lg p-4 sm:p-6 border-l-4 border-purple-400 shadow-xl">
+                <p className="text-sm sm:text-base lg:text-lg text-gray-200 leading-relaxed">
+                  <strong className="text-purple-300">Modifier la Réalité : </strong> 
+                  Si l'univers est une application, son code source binaire se trouve à l'échelle des particules fondamentales. Modifier l'ensemble des 0 et 1 d'un composant depuis cette échelle engendrerait les compilations couche par couche des échelles supérieures, jusqu'à modifier intégralement un composant de l'univers. Mais il y a une possibilité encore plus vertigineuse : une entité capable de manipuler directement ces bits (particules fondamentales) pourrait, le temps d'une fraction de seconde, figer les probabilités de chaque échelle. Chaque composant existerait alors pleinement, avant de redevenir incertain l'instant suivant. L'interface utilisateur, elle, resterait stable, mais sous le capot, les échelles de la mécanique quantique retourneraient à leur état de probabilités. Une telle puissance permettrait non seulement de modifier des composants, mais aussi d'en créer, comme le représente la simulation de codage binaire ci-dessus, mais à une échelle infiniment plus vaste.
+                </p>
+              </div>
             </div>
           </div>
 
@@ -493,12 +490,12 @@ export const GodCodesInBinaryPage: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
               <div className="space-y-4">
                 <h3 className="text-lg sm:text-xl font-bold text-emerald-200 mb-4">
-                  🌌 Cascade Universelle (Physique)
+                  🌌 Cascade Universelle
                 </h3>
                 
                 <div className="space-y-3">
                   {[
-                    { level: "Particules", desc: "Des milliards de milliards de fermions et bosons s'organisent", color: "bg-red-900/40 border-red-400" },
+                    { level: "Particules", desc: "Dieu manipule des milliards de milliards de fermions et de bosons", color: "bg-red-900/40 border-red-400" },
                     { level: "Nucléons", desc: "Des milliards de milliards de protons et neutrons se combinent", color: "bg-yellow-900/40 border-yellow-400" },
                     { level: "Atomes", desc: "Des centaines de milliards d'atomes acquièrent de nouvelles propriétés", color: "bg-green-900/40 border-green-400" },
                     { level: "Molécules", desc: "Des dizaines de milliards de molécules interagissent différemment", color: "bg-blue-900/40 border-blue-400" },
@@ -514,16 +511,16 @@ export const GodCodesInBinaryPage: React.FC = () => {
               
               <div className="space-y-4">
                 <h3 className="text-lg sm:text-xl font-bold text-emerald-200 mb-4">
-                  💻 Cascade Informatique (Logicielle)
+                  💻 Cascade Informatique
                 </h3>
                 
                 <div className="space-y-3">
                   {[
-                    { level: "0 et 1", desc: "Dieu manipule les 0 et 1, le code source fondamental qui orchestre les fondations du système.", color: "bg-red-900/40 border-red-400" },
+                    { level: "0 et 1", desc: "Dieu manipule des milliards de milliards de 0 et de 1.", color: "bg-red-900/40 border-red-400" },
                     { level: "JavaScript", desc: "Le langage universel prend forme, définissant la logique et le comportement des éléments à un niveau plus abstrait.", color: "bg-yellow-900/40 border-yellow-400" },
                     { level: "Composants React", desc: "Les composants de la réalité s'assemblent, créant des structures et des fonctionnalités complexes.", color: "bg-green-900/40 border-green-400" },
                     { level: "HTML/CSS", desc: "Le code HTML/CSS est généré à partir des composants React, définissant la structure et l'apparence visuelle du téléphone.", color: "bg-blue-900/40 border-blue-400" },
-                    { level: "Interface utilisateur", desc: "Le téléphone apparaît, fonctionnelle et tangible, c'est le rendu final et interactif du code HTML/CSS.", connection: null, color: "bg-purple-900/40 border-purple-400" }
+                    { level: "Interface utilisateur", desc: "Un téléphone complet apparaît dans la réalité.", connection: null, color: "bg-purple-900/40 border-purple-400" }
                   ].map((item, index) => (
                     <div key={index} className={`p-3 rounded-lg border-l-4 ${item.color} min-h-[80px] flex flex-col justify-center`}>
                       <div className="font-bold text-white text-sm">{item.level}</div>

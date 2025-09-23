@@ -251,7 +251,7 @@ export const UniverseAppPage: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-6">
                 <div className="space-y-3">
                   <h3 className="text-base sm:text-lg font-bold text-emerald-200 mb-3 sm:mb-4">
-                    Cascade Universelle
+                   🌌 Cascade Universelle
                   </h3>
                   
                   <div className="space-y-2 sm:space-y-3">
@@ -289,7 +289,7 @@ export const UniverseAppPage: React.FC = () => {
                 
                 <div className="space-y-3">
                   <h3 className="text-base sm:text-lg font-bold text-emerald-200 mb-3 sm:mb-4">
-                    Cascade Informatique
+                   💻 Cascade Informatique
                   </h3>
                   
                   <div className="space-y-2 sm:space-y-3">
@@ -331,7 +331,7 @@ export const UniverseAppPage: React.FC = () => {
                     À partir de l'échelle atomique (~10⁻¹⁰ m), tout change : nous entrons dans le domaine de la <strong className="text-purple-300">superposition quantique</strong>.
                   </p>
                   <p>
-                    <strong className="text-cyan-300">Dans l'univers :</strong> à cette échelle, les entités physiques (atomes, électrons, particules) existent dans plusieurs états à la fois. Dans l'<strong className="text-purple-300">expérience de la double fente</strong>, par exemple, un électron ou un atome passe simultanément par les deux fentes, créant des interférences avec lui-même. Leur existence est une <strong className="text-yellow-300">probabilité</strong> diffuse jusqu'à ce qu\'une observation ou une mesure "effondre" cette superposition en un état défini.
+                    <strong className="text-cyan-300">Dans l'univers :</strong> à cette échelle, les entités physiques (atomes, électrons, particules) existent dans plusieurs états à la fois. Dans l'<strong className="text-purple-300">expérience de la double fente</strong>, par exemple, un électron ou un atome passe simultanément par les deux fentes, créant des interférences avec lui-même. Leur existence est une <strong className="text-yellow-300">probabilité</strong> diffuse jusqu'à ce qu'une observation ou une mesure "effondre" cette superposition en un état défini.
                   </p>
                   <p>
                     <strong className="text-green-300">Dans l'application :</strong> En suivant cette logique, l'organisation des composants React qui produit le HTML et le CSS n'existe pas sous une forme unique et figée. Elle se déploie comme un ensemble de <strong className="text-yellow-300">probabilités</strong> d'agencements possibles. Ce n'est qu'au moment où l'on observe cette organisation que les composants "choisissent" une configuration particulière.
@@ -346,7 +346,7 @@ De même, le JavaScript qui compose un composant React n'existe pas à l'avance 
                 {/* Cascade Universelle (Physique) - Suite */}
                 <div className="space-y-3">
                   <h3 className="text-base sm:text-lg font-bold text-emerald-200 mb-3 sm:mb-4">
-                    Cascade Universelle (Suite)
+                   🌌 Cascade Universelle (Suite)
                   </h3>
                   {[
                     {
@@ -389,7 +389,7 @@ De même, le JavaScript qui compose un composant React n'existe pas à l'avance 
                 {/* Cascade Informatique (Logicielle) - Suite */}
                 <div className="space-y-3">
                   <h3 className="text-base sm:text-lg font-bold text-emerald-200 mb-3 sm:mb-4">
-                    Cascade Informatique (Suite)
+                   💻 Cascade Informatique (Suite)
                   </h3>
                   {[
                     {
